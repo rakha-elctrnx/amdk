@@ -23,7 +23,8 @@ class Stocks extends Migration
             ],
             "reference_table" => [
                 "type" => "VARCHAR",
-                "constraint" => 255
+                "constraint" => 255,
+                "null" => true,
             ],
             "reference_id" => [
                 "type" => "BIGINT",
@@ -33,13 +34,14 @@ class Stocks extends Migration
             ],
             "target_table" => [
                 "type" => "VARCHAR",
-                "constraint" => 255
+                "constraint" => 255,
+                "null" => true,
             ],
             "target_id" => [
                 "type" => "BIGINT",
                 "constraint" => 100,
                 "unsigned" => true,
-                "null" => true
+                "null" => true,
             ],
             "details" => [
                 "type" => "LONGTEXT",

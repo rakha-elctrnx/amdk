@@ -10,6 +10,8 @@ class Custom extends BaseConfig
     public $appName = "AMDK";
     public $yearMade = 2022;
 
+    public $materialTypes = (["","Bahan Baku","Bahan Produksi"]);
+
     // Company Identity
     public $companyName = "SMTQua";
     public $companyAddress = "Jl. Cirebon No. 1";

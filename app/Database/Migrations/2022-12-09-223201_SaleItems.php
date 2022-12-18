@@ -48,6 +48,7 @@ class SaleItems extends Migration
             ],
             "discount" => [
                 "type" => "DOUBLE",
+                "null" => true,
             ],
         ]);
 

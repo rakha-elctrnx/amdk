@@ -40,7 +40,38 @@ $routes->post("login","LoginController::login");
 $routes->get('logout', 'LogoutController::index');
 
 $routes->get('dashboard', 'DashboardController::index');
+
+$routes->get('supplier', 'SupplierController::supplier');
+$routes->get('supplier/add', 'SupplierController::supplier_add');
+$routes->post('supplier/add', 'SupplierController::supplier_add_process');
+$routes->get('supplier/(:num)/delete', 'SupplierController::supplier_delete_process/$1');
+$routes->get('supplier/(:num)/edit', 'SupplierController::supplier_edit/$1');
+$routes->post('supplier/edit', 'SupplierController::supplier_edit_process');
+
+$routes->get('customer', 'CustomerController::customer');
+$routes->get('customer/add', 'CustomerController::customer_add');
+$routes->post('customer/add', 'CustomerController::customer_add_process');
+$routes->get('customer/(:num)/delete', 'CustomerController::customer_delete_process/$1');
+$routes->get('customer/(:num)/edit', 'CustomerController::customer_edit/$1');
+$routes->post('customer/edit', 'CustomerController::customer_edit_process');
+
+$routes->get('material', 'MaterialController::material');
+$routes->get('material/add', 'MaterialController::material_add');
+$routes->post('material/add', 'MaterialController::material_add_process');
+$routes->get('material/(:num)/delete', 'MaterialController::material_delete_process/$1');
+$routes->get('material/(:num)/edit', 'MaterialController::material_edit/$1');
+$routes->post('material/edit', 'MaterialController::material_edit_process');
+
+$routes->get('transaction', 'TransactionController::transaction');
+$routes->get('transaction/add', 'TransactionController::transaction_add');
+$routes->post('transaction/add', 'TransactionController::transaction_add_process');
+$routes->get('transaction/(:num)/delete', 'TransactionController::transaction_delete_process/$1');
+$routes->get('transaction/(:num)/edit', 'TransactionController::transaction_edit/$1');
+$routes->post('transaction/edit', 'TransactionController::transaction_edit_process');
+
 $routes->get('product', 'ProductController::product');
+$routes->get('product/add', 'ProductController::product_add');
+$routes->post('product/add', 'ProductController::product_add_process');
 
 /*
  * --------------------------------------------------------------------

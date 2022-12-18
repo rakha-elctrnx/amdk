@@ -16,6 +16,10 @@ class Productions extends Migration
                 "unsigned" => true,
                 "auto_increment" => true
             ],
+            "number" => [
+                "type" => "VARCHAR",
+                "constraint" => 255,
+            ],
             "admin_id" => [
                 "type" => "BIGINT",
                 "constraint" => 100,
@@ -53,7 +57,8 @@ class Productions extends Migration
                 "type" => "DOUBLE"
             ],
             "faileds" => [
-                "type" => "DOUBLE"
+                "type" => "DOUBLE",
+                "null" => true,
             ],
         ]);
 

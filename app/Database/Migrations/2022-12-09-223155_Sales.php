@@ -16,6 +16,10 @@ class Sales extends Migration
                 "unsigned" => true,
                 "auto_increment" => true
             ],
+            "number" => [
+                "type" => "VARCHAR",
+                "constraint" => 255
+            ],
             "admin_id"  => [
                 "type" => "BIGINT",
                 "constraint" => 100,
@@ -25,11 +29,7 @@ class Sales extends Migration
                 "type" => "BIGINT",
                 "constraint" => 100,
                 "unsigned" => true,
-            ],
-            "number" => [
-                "type" => "VARCHAR",
-                "constraint" => 255
-            ],
+            ],            
             "date"  => [
                 "type"=>"DATE"
             ],

@@ -58,7 +58,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                            <button type="submit" class="btn btn-primary btn-block rounded-pill">Masuk</button>
                         </div>
                         <!-- /.col -->
                     </div>

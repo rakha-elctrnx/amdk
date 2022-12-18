@@ -7,10 +7,16 @@ $uri = current_url(true);
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?= config("Custom")->appName ?></title>
+	<title><?= config("Custom")->appName ?> | <?= $this->renderSection("tab_title") ?></title>
 	
 	<!-- Font Awesome Icons -->
 	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/fontawesome-free/css/all.min.css">
+	<!-- DataTables -->
+	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+	<!-- Toastr -->
+	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/toastr/toastr.min.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/dist/css/adminlte.min.css">
 
@@ -54,9 +60,9 @@ $uri = current_url(true);
 	</nav>
 	<!-- /.navbar -->
 	<!-- Main Sidebar Container -->
-	<aside class="main-sidebar elevation-4 sidebar-dark-lightblue">
+	<aside class="main-sidebar elevation-4 sidebar-light-lightblue">
 		<!-- Brand Logo -->
-		<a href="<?= base_url("dashboard") ?>" class="brand-link">
+		<a href="<?= base_url("dashboard") ?>" class="brand-link bg-lightblue">
 			<span class="brand-text font-weight-dark"><?= config("custom")->appName ?></span>
 		</a>
 		<!-- Sidebar -->
@@ -64,7 +70,11 @@ $uri = current_url(true);
 			<!-- Sidebar user panel (optional) -->
 			<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 				<div class="info">
-					<a href="<?= base_url('profile') ?>" class="d-block"><?= config("login")->adminName ?></a>
+					<a href="<?= base_url('profile') ?>" class="d-block">
+						<?= config("login")->adminName ?>
+						&nbsp;
+						<i class='fa fa-edit'></i>
+					</a>
 				</div>
 			</div>
 			<!-- Sidebar Menu -->
@@ -152,11 +162,22 @@ $uri = current_url(true);
 						</a>
 					</li>
 					<li class='nav-header'>
+						LAPORAN
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url('report') ?>" class="nav-link <?= ($uri->getSegment(1) === "report") ? "active" : "" ?>">
+							<i class="nav-icon fas fa-file"></i>
+							<p>
+								Laporan
+							</p>
+						</a>
+					</li>
+					<li class='nav-header'>
 						PENGGUNA
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('users') ?>" class="nav-link <?= ($uri->getSegment(1) === "users") ? "active" : "" ?>">
-							<i class="nav-icon fas fa-cogs"></i>
+							<i class="nav-icon fas fa-user"></i>
 							<p>
 								Pengguna
 							</p>
@@ -190,7 +211,7 @@ $uri = current_url(true);
 	
 		<!-- Main content -->
 		<div class="content">
-			<div class="container-fluid">
+			<div class="container-fluid">				
 				<?= $this->renderSection('content') ?>				
 			</div><!-- /.container-fluid -->
 		</div>
@@ -216,8 +237,44 @@ $uri = current_url(true);
 <script src="<?= base_url('adminlte') ?>/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url('adminlte') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="<?= base_url('adminlte') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/jszip/jszip.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?= base_url('adminlte') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Toastr -->
+<script src="<?= base_url('adminlte') ?>/plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('adminlte') ?>/dist/js/adminlte.min.js"></script>
+
+<script>
+	$(function () {
+		$("#datatable1").DataTable({
+			"responsive": true, "lengthChange": true, "autoWidth": false,
+			"buttons": ["excel", "pdf", "print"]
+		}).buttons().container().appendTo('#datatable1_wrapper .col-md-6:eq(0)');
+	});
+</script>
+
+<?php
+if(isset($_SESSION['msg'])){
+?>
+<script>
+	$(document).ready(function() {
+		toastr.<?= $_SESSION['msg_type'] ?>('<?= $_SESSION['msg'] ?>')
+	});
+</script>
+<?php
+}
+?>
 
 <?= $this->renderSection("script") ?>
 </body>

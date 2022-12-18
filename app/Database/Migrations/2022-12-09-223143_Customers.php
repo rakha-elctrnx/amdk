@@ -24,7 +24,7 @@ class Customers extends Migration
                 "type" => "LONGTEXT",
                 "null" => true
             ],
-            "phone" => [
+            "mobile" => [
                 "type" => "VARCHAR",
                 "constraint" => 255,
                 "null" => true

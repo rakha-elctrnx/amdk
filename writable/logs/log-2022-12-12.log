@@ -1,0 +1,8 @@
+CRITICAL - 2022-12-12 21:38:24 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$getPost
+in APPPATH\Controllers\SupplierController.php on line 22.
+ 1 APPPATH\Controllers\SupplierController.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$getPost', 'APPPATH\\Controllers\\SupplierController.php', 22)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SupplierController->supplier_add_process()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SupplierController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

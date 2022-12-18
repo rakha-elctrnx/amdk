@@ -1,0 +1,8 @@
+CRITICAL - 2022-12-19 05:28:49 --> Uninitialized string offset 3
+in APPPATH\Controllers\ProductController.php on line 42.
+ 1 APPPATH\Controllers\ProductController.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Uninitialized string offset 3', 'APPPATH\\Controllers\\ProductController.php', 42)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductController->product_add_process()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

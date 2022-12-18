@@ -26,6 +26,11 @@ class Suppliers extends Migration
             "phone" => [
                 "type" => "VARCHAR",
                 "constraint" => 255,
+                "null" => true,
+            ],
+            "mobile" => [
+                "type" => "VARCHAR",
+                "constraint" => 255,
             ],
             "email" => [
                 "type" => "VARCHAR",

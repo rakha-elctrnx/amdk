@@ -1,5 +1,9 @@
 <?= $this->extend("template") ?>
 
+<?= $this->section("tab_title") ?>
+Dashboard
+<?= $this->endSection() ?>
+
 <?= $this->section("title") ?>
 Dashboard
 <?= $this->endSection() ?>

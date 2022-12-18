@@ -24,13 +24,13 @@ class Materials extends Migration
             "name" => [
                 "type" => "VARCHAR",
                 "constraint" => 255
-            ],
-            "price" => [
-                "type" => "DOUBLE"
-            ],
+            ],            
             "unit" => [
                 "type" => "VARCHAR",
                 "constraint" => 255
+            ],
+            "price" => [
+                "type" => "DOUBLE"
             ],
             "stocks" => [
                 "type" => "DOUBLE"

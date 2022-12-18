@@ -42,6 +42,7 @@ class BuyItems extends Migration
             ],
             "discount" => [
                 "type" => "DOUBLE",
+                "null" => true,
             ],
         ]);
 

@@ -20,13 +20,13 @@ class Products extends Migration
                 "type" => "VARCHAR",
                 "constraint" => 255
             ],
-            "price" => [
-                "type" => "DOUBLE"
-            ],
             "unit" => [
                 "type" => "VARCHAR",
                 "constraint" => 255
             ],
+            "price" => [
+                "type" => "DOUBLE"
+            ],            
             "stocks" => [
                 "type" => "DOUBLE"
             ]

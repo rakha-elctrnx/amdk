@@ -28,14 +28,17 @@ class Transactions extends Migration
                 "type" => "DATE"
             ],
             "debit" => [
-                "type" => "DOUBLE"
+                "type" => "DOUBLE",
+                "null" => true,
             ],
             "credit" => [
-                "type" => "DOUBLE"
+                "type" => "DOUBLE",
+                "null" => true,
             ],
             "reference_table" => [
                 "type" => "VARCHAR",
-                "constraint" => 255
+                "constraint" => 255,
+                "null" => true,
             ],
             "reference_id" => [
                 "type" => "BIGINT",

@@ -16,6 +16,10 @@ class Buys extends Migration
                 "unsigned" => true,
                 "auto_increment" => true
             ],
+            "number" => [
+                "type" => "VARCHAR",
+                "constraint" => 255
+            ],
             "admin_id"  => [
                 "type" => "BIGINT",
                 "constraint" => 100,
@@ -25,14 +29,11 @@ class Buys extends Migration
                 "type" => "BIGINT",
                 "constraint" => 100,
                 "unsigned" => true,
-            ],
-            "number" => [
-                "type" => "VARCHAR",
-                "constraint" => 255
-            ],
+            ],            
             "invoice_reference" => [
                 "type" => "VARCHAR",
-                "constraint" => 255
+                "constraint" => 255,
+                "null" => true,
             ],
             "date"  => [
                 "type"=>"DATE"
