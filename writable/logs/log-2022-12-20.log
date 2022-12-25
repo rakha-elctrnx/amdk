@@ -1,0 +1,63 @@
+ERROR - 2022-12-20 21:15:25 --> mysqli_sql_exception: Column 'number' cannot be null in D:\Projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `bu...', 0)
+#1 D:\Projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bu...')
+#2 D:\Projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bu...')
+#3 D:\Projects\amdk\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bu...', Array, false)
+#4 D:\Projects\amdk\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Projects\amdk\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 D:\Projects\amdk\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Projects\amdk\app\Controllers\BuyController.php(34): CodeIgniter\Model->insert(Array)
+#8 D:\Projects\amdk\system\CodeIgniter.php(927): App\Controllers\BuyController->buy_add_process()
+#9 D:\Projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuyController))
+#10 D:\Projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Projects\amdk\system\Commands\Server\rewrite.php(46): require_once('D:\\Projects\\amd...')
+#13 {main}
+CRITICAL - 2022-12-20 21:15:25 --> Column 'number' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `buys` (`number`, `admin_id`, `supplier_id`, `invoice_reference`, `date`, `notes`) VALUES (NULL, \'1\', \'1\', \'XX001\', \'2022-12-07\', \'-\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buys` (`number`, `admin_id`, `supplier_id`, `invoice_reference`, `date`, `notes`) VALUES (NULL, \'1\', \'1\', \'XX001\', \'2022-12-07\', \'-\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buys` (`number`, `admin_id`, `supplier_id`, `invoice_reference`, `date`, `notes`) VALUES (NULL, \'1\', \'1\', \'XX001\', \'2022-12-07\', \'-\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buys` (`number`, `admin_id`, `supplier_id`, `invoice_reference`, `date`, `notes`) VALUES (:number:, :admin_id:, :supplier_id:, :invoice_reference:, :date:, :notes:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\BuyController.php(34): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\BuyController->buy_add_process()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuyController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-20 21:15:35 --> Undefined property: App\Controllers\BuyController::$buyMudel
+in APPPATH\Controllers\BuyController.php on line 49.
+ 1 APPPATH\Controllers\BuyController.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\BuyController::$buyMudel', 'APPPATH\\Controllers\\BuyController.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\BuyController->buy_add_process()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuyController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-20 21:24:31 --> Undefined property: stdClass::$suppier_id
+in APPPATH\Views\modules\buy_manage.php on line 34.
+ 1 APPPATH\Views\modules\buy_manage.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$suppier_id', 'APPPATH\\Views\\modules\\buy_manage.php', 34)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\buy_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/buy_manage', [], true)
+ 5 APPPATH\Controllers\BuyController.php(71): view('modules/buy_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\BuyController->buy_manage('3')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuyController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-20 21:39:46 --> Undefined property: stdClass::$name
+in APPPATH\Views\modules\buy.php on line 60.
+ 1 APPPATH\Views\modules\buy.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Views\\modules\\buy.php', 60)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\buy.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/buy', [], true)
+ 5 APPPATH\Controllers\BuyController.php(22): view('modules/buy', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\BuyController->buy()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuyController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

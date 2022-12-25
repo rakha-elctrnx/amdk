@@ -26,7 +26,7 @@ class SaleItems extends Migration
                 "constraint" => 100,
                 "unsigned" => true,
             ],
-            "product_package_id"  => [
+            "product_variant_id"  => [
                 "type" => "BIGINT",
                 "constraint" => 100,
                 "unsigned" => true,

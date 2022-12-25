@@ -51,7 +51,7 @@ Pemasok
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
                                 <td><?= $supplier->name ?></td>
-                                <td><?= $supplier->address ?></td>
+                                <td><?= nl2br($supplier->address) ?></td>
                                 <td class='text-right'><?= $supplier->phone ?></td>
                                 <td class='text-right'><?= $supplier->mobile ?></td>
                                 <td><?= $supplier->email ?></td>

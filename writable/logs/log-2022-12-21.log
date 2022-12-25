@@ -1,0 +1,8 @@
+CRITICAL - 2022-12-21 21:19:22 --> Undefined variable $thus
+in APPPATH\Controllers\BuyController.php on line 128.
+ 1 APPPATH\Controllers\BuyController.php(128): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $thus', 'APPPATH\\Controllers\\BuyController.php', 128)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\BuyController->buy_item_add()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuyController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

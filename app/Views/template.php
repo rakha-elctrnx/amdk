@@ -21,6 +21,9 @@ $uri = current_url(true);
 	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/dist/css/adminlte.min.css">
 
 	<style>
+		html{
+			scroll-behavior: smooth;
+		}
 		.main-header{
 			border-bottom: none;
 		}

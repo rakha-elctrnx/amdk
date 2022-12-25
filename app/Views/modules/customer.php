@@ -49,7 +49,7 @@ Pelanggan
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
                                 <td><?= $customer->name ?></td>
-                                <td><?= $customer->address ?></td>
+                                <td><?= nl2br($customer->address) ?></td>
                                 <td class='text-right'><?= $customer->mobile ?></td>
                                 <td class='text-center'>
                                     <a href="<?= base_url('customer/'.$customer->id.'/edit') ?>" class='btn btn-xs btn-success rounded-pill' title="Edit">

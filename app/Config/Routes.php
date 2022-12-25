@@ -62,6 +62,13 @@ $routes->get('material/(:num)/delete', 'MaterialController::material_delete_proc
 $routes->get('material/(:num)/edit', 'MaterialController::material_edit/$1');
 $routes->post('material/edit', 'MaterialController::material_edit_process');
 
+$routes->get('buy', 'BuyController::buy');
+$routes->get("buy/add","BuyController::buy_add");
+$routes->post("buy/add","BuyController::buy_add_process");
+$routes->get("buy/(:num)/manage","BuyController::buy_manage/$1");
+$routes->post("buy/edit","BuyController::buy_edit_process");
+$routes->post("buy/item/add","BuyController::buy_item_add");
+
 $routes->get('transaction', 'TransactionController::transaction');
 $routes->get('transaction/add', 'TransactionController::transaction_add');
 $routes->post('transaction/add', 'TransactionController::transaction_add_process');

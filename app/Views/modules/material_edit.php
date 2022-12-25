@@ -80,7 +80,7 @@ Tambah Bahan (Baku/Produksi)
                         <div class="col-md-12">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-block rounded-pill">
-                                    <i class='fa fa-plus'></i>
+                                    <i class='fa fa-save'></i>
                                     Simpan bahan (baku/produksi)
                                 </button>
                                 <br>

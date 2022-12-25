@@ -62,7 +62,7 @@ Edit Pemasok
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea name="address" class="form-control" name="address" placeholder="Alamat Pemasok" required><?= $supplier->address ?></textarea>
+                                <textarea name="address" class="form-control" name="address" placeholder="Alamat Pemasok" required><?= nl2br($supplier->address) ?></textarea>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,11 @@ class Custom extends BaseConfig
 
     public $materialTypes = (["","Bahan Baku","Bahan Produksi"]);
 
+    // Letter for number of transactions
+    public $buyLetter = "B";
+    public $saleLetter = "J";
+    public $productionLetter = "P";
+
     // Company Identity
     public $companyName = "SMTQua";
     public $companyAddress = "Jl. Cirebon No. 1";

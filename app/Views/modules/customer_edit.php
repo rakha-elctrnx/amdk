@@ -50,7 +50,7 @@ Edit Pelanggan
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea name="address" class="form-control" name="address" placeholder="Alamat Pelanggan" required><?= $customer->address ?></textarea>
+                                <textarea name="address" class="form-control" name="address" placeholder="Alamat Pelanggan" required><?= nl2br($customer->address) ?></textarea>
                             </div>
                         </div>
                     </div>
