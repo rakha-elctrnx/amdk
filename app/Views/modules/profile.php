@@ -1,17 +1,16 @@
 <?= $this->extend("template") ?>
 
 <?= $this->section("tab_title") ?>
-Tambah Pengguna
+Profil
 <?= $this->endSection() ?>
 
 <?= $this->section("title") ?>
-Tambah Pengguna
+Profil
 <?= $this->endSection() ?>
 
 <?= $this->section("breadcrumb") ?>
 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-<li class="breadcrumb-item"><a href="<?= base_url('user') ?>">Pengguna</a></li>
-<li class="breadcrumb-item active">Tambah</li>
+<li class="breadcrumb-item active">Profil</li>
 <?= $this->endSection() ?>
 
 <?= $this->section("content") ?>
@@ -20,29 +19,21 @@ Tambah Pengguna
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Tambah Data Pengguna</h3>
+                <h3 class="card-title">Profil Pengguna</h3>
             </div>
             <div class="card-body">
-                <form action="<?= base_url("user/add") ?>" method="post">
-                    <div class="row mb-2">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" name='username' class='form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>' value="<?= (old('username')); ?>" placeholder="Username" required>
-                                <div class="invalid-feedback">
-                                    <?= $validation->getError('username'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <form action="<?= base_url("profile/edit") ?>" method="post">
                     <div class="row mb-2">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name='name' class='form-control <?= ($validation->hasError('name')) ? 'is-invalid' : ''; ?>' value="<?= (old('name')); ?>" placeholder="Nama" required>
-                                <div class="invalid-feedback">
-                                    <?= $validation->getError('name'); ?>
-                                </div>
+                                <label>Nama</label>
+                                <h3><?= $administrator->name ?></h3>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Username</label>
+                                <h3><?= $administrator->username ?></h3>
                             </div>
                         </div>
                     </div>
@@ -71,13 +62,8 @@ Tambah Pengguna
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block rounded-pill">
                                     <i class='fa fa-plus'></i>
-                                    Tambah Pengguna
+                                    Ubah Password
                                 </button>
-                                <br>
-                                <a href="<?= base_url('user') ?>" class='btn btn-block btn-info rounded-pill'>
-                                    <i class='fa fa-arrow-left'></i>
-                                    Kembali ke data pelanggan
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -87,6 +73,7 @@ Tambah Pengguna
         </div>
     </div>
 </div>
+
 <?= $this->endSection() ?>
 
 <?= $this->section("script") ?>

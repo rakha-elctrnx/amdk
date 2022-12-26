@@ -83,6 +83,9 @@ $routes->post('product/add', 'ProductController::product_add_process');
 $routes->get('user', 'UserController::user');
 $routes->get('user/add', 'UserController::user_add');
 $routes->post('user/add', 'UserController::user_add_process');
+
+$routes->get('profile', 'UserController::profile');
+$routes->post('profile/edit', 'UserController::profile_change_password');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
