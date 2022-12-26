@@ -1,0 +1,39 @@
+CRITICAL - 2022-12-26 09:15:23 --> Undefined property: App\Controllers\UserController::$adminModel
+in APPPATH\Controllers\UserController.php on line 11.
+ 1 APPPATH\Controllers\UserController.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\UserController::$adminModel', 'APPPATH\\Controllers\\UserController.php', 11, [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\UserController->user()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-26 11:43:12 --> mysqli_sql_exception: Column 'name' cannot be null in C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\laragon\www\projects\amdk\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\laragon\www\projects\amdk\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\projects\amdk\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\projects\amdk\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\projects\amdk\app\Controllers\UserController.php(64): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\projects\amdk\system\CodeIgniter.php(927): App\Controllers\UserController->user_add_process()
+#9 C:\laragon\www\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#10 C:\laragon\www\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2022-12-26 11:43:12 --> Column 'name' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `administrators` (`name`, `username`, `password`) VALUES (NULL, \'aaa\', \'$2y$10$tFSwjw09T9MFjIed4FOeyetoXuf2JqrJyMl.4HGba5SH1zdBOoYTa\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `administrators` (`name`, `username`, `password`) VALUES (NULL, \'aaa\', \'$2y$10$tFSwjw09T9MFjIed4FOeyetoXuf2JqrJyMl.4HGba5SH1zdBOoYTa\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `administrators` (`name`, `username`, `password`) VALUES (NULL, \'aaa\', \'$2y$10$tFSwjw09T9MFjIed4FOeyetoXuf2JqrJyMl.4HGba5SH1zdBOoYTa\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `administrators` (`name`, `username`, `password`) VALUES (:name:, :username:, :password:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\UserController.php(64): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\UserController->user_add_process()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

@@ -36,7 +36,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->post("login","LoginController::login");
+$routes->post("login", "LoginController::login");
 $routes->get('logout', 'LogoutController::index');
 
 $routes->get('dashboard', 'DashboardController::index');
@@ -63,11 +63,11 @@ $routes->get('material/(:num)/edit', 'MaterialController::material_edit/$1');
 $routes->post('material/edit', 'MaterialController::material_edit_process');
 
 $routes->get('buy', 'BuyController::buy');
-$routes->get("buy/add","BuyController::buy_add");
-$routes->post("buy/add","BuyController::buy_add_process");
-$routes->get("buy/(:num)/manage","BuyController::buy_manage/$1");
-$routes->post("buy/edit","BuyController::buy_edit_process");
-$routes->post("buy/item/add","BuyController::buy_item_add");
+$routes->get("buy/add", "BuyController::buy_add");
+$routes->post("buy/add", "BuyController::buy_add_process");
+$routes->get("buy/(:num)/manage", "BuyController::buy_manage/$1");
+$routes->post("buy/edit", "BuyController::buy_edit_process");
+$routes->post("buy/item/add", "BuyController::buy_item_add");
 
 $routes->get('transaction', 'TransactionController::transaction');
 $routes->get('transaction/add', 'TransactionController::transaction_add');
@@ -80,6 +80,9 @@ $routes->get('product', 'ProductController::product');
 $routes->get('product/add', 'ProductController::product_add');
 $routes->post('product/add', 'ProductController::product_add_process');
 
+$routes->get('user', 'UserController::user');
+$routes->get('user/add', 'UserController::user_add');
+$routes->post('user/add', 'UserController::user_add_process');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
