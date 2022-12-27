@@ -31,15 +31,15 @@ Kelola Pembelian
                                 <label>Pemasok</label>
                                 <select class="form-control" name="supplier">
                                     <?php
-                                    foreach($suppliers as $supplier){
-                                        if($supplier->id == $buy->supplier_id){
+                                    foreach ($suppliers as $supplier) {
+                                        if ($supplier->id == $buy->supplier_id) {
                                             $sep = "selected";
-                                        }else{
+                                        } else {
                                             $sep = "";
                                         }
-                                        ?>
+                                    ?>
                                         <option value="<?= $supplier->id ?>" <?= $sep ?>><?= $supplier->name ?></option>
-                                        <?php
+                                    <?php
                                     }
                                     ?>
                                 </select>
@@ -80,7 +80,7 @@ Kelola Pembelian
                         </div>
                         <div class="col-md-3">
                             <div class='form-group'>
-                                <a href="#" class='btn btn-block btn-danger rounded-pill'>
+                                <a href="<?= base_url('buy/' . $buy->id . '/delete') ?>" class='btn btn-block btn-danger rounded-pill'>
                                     <i class='fa fa-trash'></i>
                                     Hapus pembelian
                                 </a>
@@ -88,7 +88,7 @@ Kelola Pembelian
                         </div>
                         <div class="col-md-3">
                             <div class='form-group'>
-                                <a href="#" class='btn btn-block btn-primary rounded-pill'>
+                                <a href="<?= base_url('buy/' . $buy->id . '/print') ?>" target="_blank" class='btn btn-block btn-primary rounded-pill'>
                                     <i class='fa fa-file'></i>
                                     Cetak nota pembelian
                                 </a>
@@ -130,58 +130,60 @@ Kelola Pembelian
                     <tbody>
                         <?php
                         $grandTotal = 0;
-                        foreach($items as $item){
-                            ?>
-                        <tr>
-                            <form action="<?= base_url("buy/item/edit") ?>" method="post">
-                                <td class='text-center'>
-                                    <input type="hidden" name="buy" value="<?= $buy->id ?>">
-                                    <input type="hidden" name="id" value="<?= $item->id ?>">
-                                    <input type="hidden" name="material" value="<?= $item->material_id ?>">
-                                    <input type="text" name="material_name" class="form-control" value="<?= $item->snapshot_material_name ?>" readonly>
-                                </td>
-                                <td class='text-center'>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Rp.</span>
+                        foreach ($items as $item) {
+                        ?>
+                            <tr>
+                                <form action="<?= base_url("buy/item/edit") ?>" method="post">
+                                    <td class='text-center'>
+                                        <input type="hidden" name="buy" value="<?= $buy->id ?>">
+                                        <input type="hidden" name="id" value="<?= $item->id ?>">
+                                        <input type="hidden" name="quantity_before" value="<?= $item->quantity_before ?>">
+                                        <input type="hidden" name="quantity_old" value="<?= $item->quantity ?>">
+                                        <input type="hidden" name="material" value="<?= $item->material_id ?>">
+                                        <input type="text" name="material_name" class="form-control" value="<?= $item->snapshot_material_name ?>" readonly>
+                                    </td>
+                                    <td class='text-center'>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Rp.</span>
+                                            </div>
+                                            <input type="number" class="form-control text-right" name='price' value="<?= $item->price ?>" placeholder="Harga" min="1" required>
                                         </div>
-                                        <input type="number" class="form-control text-right" name='price' value="<?= $item->price ?>" placeholder="Harga" min="1" required>
-                                    </div>
-                                </td>
-                                <td class='text-center'>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control text-right" name='quantity' value="<?= $item->quantity ?>" placeholder="Kuantitas" min="0" required>
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><?= $item->snapshot_material_unit ?></span>
+                                    </td>
+                                    <td class='text-center'>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control text-right" name='quantity' value="<?= $item->quantity ?>" placeholder="Kuantitas" min="0" required>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><?= $item->snapshot_material_unit ?></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class='text-center'>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control text-right" name='discount' value="<?= $item->discount ?>" placeholder="Diskon" min="0" required>
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">%</span>
+                                    </td>
+                                    <td class='text-center'>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control text-right" name='discount' value="<?= $item->discount ?>" placeholder="Diskon" min="0" required>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">%</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class='text-right' width="15%">
-                                    <?php
-                                    $thisTotal = ($item->price * $item->quantity) - (($item->price * $item->quantity) * $item->discount / 100);
-                                    $grandTotal += $thisTotal;
-                                    ?>
-                                    Rp. <?= number_format($thisTotal,0,",",".") ?>
-                                </td>
-                                <td class='text-center' width="15%">
-                                    <button type="submit" class="btn btn-success" title="Simpan">
-                                        <i class='fa fa-save'></i>
-                                    </button>
-                                    <a href="#" class='btn btn-danger'>
-                                        <i class='fa fa-trash'></i>
-                                    </a>
-                                </td>
-                            </form>
-                        </tr>
-                            <?php
+                                    </td>
+                                    <td class='text-right' width="15%">
+                                        <?php
+                                        $thisTotal = ($item->price * $item->quantity) - (($item->price * $item->quantity) * $item->discount / 100);
+                                        $grandTotal += $thisTotal;
+                                        ?>
+                                        Rp. <?= number_format($thisTotal, 0, ",", ".") ?>
+                                    </td>
+                                    <td class='text-center' width="15%">
+                                        <button type="submit" class="btn btn-success" title="Simpan">
+                                            <i class='fa fa-save'></i>
+                                        </button>
+                                        <a onclick="return confirm('Yakin hapus <?= $item->snapshot_material_name ?>.?')" href="<?= base_url("buy/" . $buy->id . "/item/" . $item->id . "/delete") ?>" class='btn btn-danger'>
+                                            <i class='fa fa-trash'></i>
+                                        </a>
+                                    </td>
+                                </form>
+                            </tr>
+                        <?php
                         }
                         ?>
                         <tr>
@@ -191,17 +193,17 @@ Kelola Pembelian
                                     <select name="material" class='form-control' id="materialSelect" required>
                                         <option value="">--Pilih Bahan--</option>
                                         <?php
-                                        foreach($materials as $material){
+                                        foreach ($materials as $material) {
                                             $exist = $db->table("buy_items");
                                             $exist->where("material_id", $material->id);
                                             $exist->where("buy_id", $buy->id);
                                             $exist = $exist->get();
                                             $exist = $exist->getResultObject();
 
-                                            if($exist == NULL) :
-                                            ?>
-                                            <option value="<?= $material->id ?>"><?=$material->name ?></option>
-                                            <?php
+                                            if ($exist == NULL) :
+                                        ?>
+                                                <option value="<?= $material->id ?>"><?= $material->name ?></option>
+                                        <?php
                                             endif;
                                         }
                                         ?>
@@ -246,7 +248,7 @@ Kelola Pembelian
                     <tfoot>
                         <tr>
                             <th class='text-right' colspan="4">Total</th>
-                            <th class='text-right'>Rp. <?= number_format($grandTotal,0,",",".") ?></th>
+                            <th class='text-right'>Rp. <?= number_format($grandTotal, 0, ",", ".") ?></th>
                             <th></th>
                         </tr>
                     </tfoot>
@@ -262,44 +264,42 @@ Kelola Pembelian
 <?= $this->section("script") ?>
 
 <script type="text/javascript">
+    // $("#materialSelect").change(function(){
+    //     let valPrice = $("option:selected",this).attr("price")
+    //     let valQuantity = $("#quantityField").val()
+    //     let valDiscount = $("#discountField").val()
+    //     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
 
-// $("#materialSelect").change(function(){
-//     let valPrice = $("option:selected",this).attr("price")
-//     let valQuantity = $("#quantityField").val()
-//     let valDiscount = $("#discountField").val()
-//     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
+    //     $("#priceField").val(valPrice)
+    //     $("#totalField").val(total)
+    // })
 
-//     $("#priceField").val(valPrice)
-//     $("#totalField").val(total)
-// })
+    // $("#priceField").change(function(){
+    //     let valPrice = $(this).val()
+    //     let valQuantity = $("#quantityField").val()
+    //     let valDiscount = $("#discountField").val()
+    //     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
 
-// $("#priceField").change(function(){
-//     let valPrice = $(this).val()
-//     let valQuantity = $("#quantityField").val()
-//     let valDiscount = $("#discountField").val()
-//     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
+    //     $("#totalField").val(total)
+    // })
 
-//     $("#totalField").val(total)
-// })
+    // $("#quantityField").change(function(){
+    //     let valPrice = $("#priceField").val()
+    //     let valQuantity = $(this).val()
+    //     let valDiscount = $("#discountField").val()
+    //     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
 
-// $("#quantityField").change(function(){
-//     let valPrice = $("#priceField").val()
-//     let valQuantity = $(this).val()
-//     let valDiscount = $("#discountField").val()
-//     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
+    //     $("#totalField").val(total)
+    // })
 
-//     $("#totalField").val(total)
-// })
+    // $("#discountField").change(function(){
+    //     let valPrice = $("#priceField").val()
+    //     let valQuantity = $("#quantityField").val()
+    //     let valDiscount = $(this).val()
+    //     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
 
-// $("#discountField").change(function(){
-//     let valPrice = $("#priceField").val()
-//     let valQuantity = $("#quantityField").val()
-//     let valDiscount = $(this).val()
-//     let total = (valPrice * valQuantity) - ((valPrice * valQuantity) * valDiscount / 100);
-
-//     $("#totalField").val(total)
-// })
-
+    //     $("#totalField").val(total)
+    // })
 </script>
 
 <?= $this->endSection() ?>
