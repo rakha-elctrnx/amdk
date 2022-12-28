@@ -18,8 +18,9 @@ class CoreController extends BaseController
     protected $buyModel;
     protected $saleModel;
     protected $stockModel;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->session = \Config\Services::session();
         $this->db      = \Config\Database::connect();
         $this->adminModel = new \App\Models\AdministratorModel();
@@ -34,6 +35,7 @@ class CoreController extends BaseController
         $this->ingredientModel = new \App\Models\IngredientModel();
         $this->saleModel = new \App\Models\SaleModel();
         $this->stockModel = new \App\Models\StockModel();
+        $this->saleItemModel = new \App\Models\SaleItemModel();
 
         if ($this->session->admin_id == null) {
             $this->session->setFlashdata('msg', 'Login terlebih dahulu!');

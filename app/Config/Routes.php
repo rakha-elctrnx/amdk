@@ -90,6 +90,11 @@ $routes->post('user/add', 'UserController::user_add_process');
 
 $routes->get('profile', 'UserController::profile');
 $routes->post('profile/edit', 'UserController::profile_change_password');
+
+$routes->get('sale', 'SaleController::sale');
+$routes->get("sale/add", "SaleController::sale_add");
+$routes->post("sale/add", "SaleController::sale_add_process");
+$routes->get("sale/(:num)/manage", "SaleController::sale_manage/$1");
 /*
  * --------------------------------------------------------------------
  * Additional Routing
