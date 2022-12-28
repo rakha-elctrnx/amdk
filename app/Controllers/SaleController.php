@@ -105,4 +105,57 @@ class SaleController extends CoreController
 
         return view("modules/sale_manage", $data);
     }
+
+    public function sale_item_add()
+    {
+        $sale_id = $this->request->getPost("sale");
+        $product = $this->request->getPost("product_id");
+        $quantity = $this->request->getPost("quantity");
+        $discount = $this->request->getPost("discount");
+        $productExplode = explode('-', $product);
+
+        $productData = null;
+        $productId = null;
+        $productVariantId = null;
+        $productUnit = null;
+        $productPrice = null;
+        if ($productExplode[1] && $productExplode[3] == 0) {
+            $productData = $this->productModel->where('id', $productExplode[1])->first();
+            $productId = $productData->id;
+            $productUnit = $productData->unit;
+            $productPrice = $productData->price;
+        } elseif ($productExplode[1] && $productExplode[3] != 0) {
+            $productData = $this->productVariantModel
+                ->select([
+                    'product_variants.id as product_variants_id',
+                    'product_variants.unit as product_variants_unit',
+                    'product_variants.price as product_variants_price',
+                    'products.id as product_id',
+                    'products.name',
+                    'products.unit as product_unit',
+                ])
+                ->join('products', 'product_variants.product_id = products.id')
+                ->where(['product_variants.id' => $productExplode[3], 'product_variants.product_id' => $productExplode[1]])
+                ->first();
+            $productVariantId = $productData->product_variants_id;
+            $productId = $productData->product_id;
+            $productUnit = $productData->product_variants_unit;
+            $productPrice = $productData->product_variants_price;
+        }
+
+        $this->saleItemModel->insert([
+            "sale_id" =>  $sale_id,
+            "product_id"                => $productId,
+            "product_variant_id"        => $productVariantId,
+            "snapshot_product_name"     => $productData->name,
+            "snapshot_product_unit"     => $productUnit,
+            "quantity"              => $quantity,
+            "price"             => $productPrice,
+            "discount"             => $discount,
+        ]);
+
+        $this->session->setFlashdata("msg_type", "success");
+        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil dibuat.");
+        return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+    }
 }

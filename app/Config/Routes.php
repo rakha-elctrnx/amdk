@@ -95,6 +95,7 @@ $routes->get('sale', 'SaleController::sale');
 $routes->get("sale/add", "SaleController::sale_add");
 $routes->post("sale/add", "SaleController::sale_add_process");
 $routes->get("sale/(:num)/manage", "SaleController::sale_manage/$1");
+$routes->post("sale/item/add", "SaleController::sale_item_add");
 /*
  * --------------------------------------------------------------------
  * Additional Routing

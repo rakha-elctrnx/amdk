@@ -187,7 +187,7 @@ Kelola Penjualan
                         }
                         ?>
                         <tr>
-                            <form action="<?= base_url("sale/item/add") ?>" method="psot">
+                            <form action="<?= base_url("sale/item/add") ?>" method="post">
                                 <td class='text-left'>
                                     <input type="hidden" name="sale" value="<?= $sale->id ?>">
                                     <select name="product_id" class='form-control select2bs4' style="width: 100%;" id="product_id" required>
@@ -203,7 +203,7 @@ Kelola Penjualan
                                             if ($exist_product == NULL) :
                                             ?>
                                                 <!-- <input type="hidden" value="<?= $product->id ?>" name="product_id"> -->
-                                                <option value="<?= $product->id ?>"><?= $product->name; ?> (Satuan Default : <?= $product->unit; ?>)</option>
+                                                <option value="product-<?= $product->id ?>-variant-0"><?= $product->name; ?> (Satuan Default : <?= $product->unit; ?>)</option>
                                             <?php
                                             endif;
                                             ?>
@@ -227,7 +227,7 @@ Kelola Penjualan
                                                 if ($exist_product_variant == NULL) :
                                                 ?>
                                                     <!-- <input type="hidden" value="<?= $variant->id ?>" name="product_variant_id"> -->
-                                                    <option value="<?= $variant->id ?>"><?= $product->name; ?> (Satuan Lainya : <?= $variant->unit; ?>)</option>
+                                                    <option value="product-<?= $product->id ?>-variant-<?= $variant->id ?>"><?= $product->name; ?> (Satuan Lainya : <?= $variant->unit; ?>)</option>
                                                 <?php
                                                 endif;
                                                 ?>
