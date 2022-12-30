@@ -26,7 +26,7 @@ Produk
                             <i class='fa fa-plus'></i>
                             Tambah
                         </a>
-                    </li>  
+                    </li>
                 </ul>
             </div>
             <div class="card-body">
@@ -44,25 +44,25 @@ Produk
                     <tbody>
                         <?php
                         $no = 0;
-                        foreach($products as $product){
+                        foreach ($products as $product) {
                             $no++;
-                            ?>
+                        ?>
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
                                 <td><?= $product->name ?></td>
-                                <td class='text-right'><?= number_format($product->stocks,0,",",".") ?></td>
+                                <td class='text-right'><?= number_format($product->stocks, 0, ",", ".") ?></td>
                                 <td><?= $product->unit ?></td>
-                                <td class='text-right'>Rp. <?= number_format($product->price,0,",",".") ?></td>                                
+                                <td class='text-right'>Rp. <?= number_format($product->price, 0, ",", ".") ?></td>
                                 <td class='text-center'>
-                                    <a href="#" class='btn btn-xs btn-success rounded-pill' title="Edit">
+                                    <a href="<?= base_url('product/' . $product->id . '/edit') ?>" class='btn btn-xs btn-success rounded-pill' title="Edit">
                                         <i class='fa fa-edit'></i>
                                     </a>
-                                    <a href="#" class='btn btn-xs btn-danger rounded-pill' title="Hapus" onclick="return confirm('Yakin hapus <?= $product->name ?>.?')">
+                                    <a href="<?= base_url('product/'.$product->id.'/delete') ?>" class='btn btn-xs btn-danger rounded-pill' title="Hapus" onclick="return confirm('Yakin hapus <?= $product->name ?>.?')">
                                         <i class='fa fa-trash'></i>
                                     </a>
                                 </td>
                             </tr>
-                            <?php
+                        <?php
                         }
                         ?>
                     </tbody>

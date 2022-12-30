@@ -13,6 +13,7 @@ class CoreController extends BaseController
     protected $customerModel;
     protected $materialModel;
     protected $transactionModel;
+    protected $ProductionModel;
     protected $productModel;
     protected $productVariantModel;
     protected $buyModel;
@@ -28,6 +29,7 @@ class CoreController extends BaseController
         $this->customerModel = new \App\Models\CustomerModel();
         $this->materialModel = new \App\Models\MaterialModel();
         $this->transactionModel = new \App\Models\TransactionModel();
+        $this->ProductionModel = new \App\Models\ProductionModel();
         $this->productModel = new \App\Models\ProductModel();
         $this->productVariantModel = new \App\Models\ProductVariantModel();
         $this->buyModel = new \App\Models\BuyModel();

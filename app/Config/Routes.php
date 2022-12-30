@@ -82,6 +82,10 @@ $routes->post('transaction/edit', 'TransactionController::transaction_edit_proce
 
 $routes->get('product', 'ProductController::product');
 $routes->get('product/add', 'ProductController::product_add');
+$routes->get('product/(:num)/edit', 'ProductController::product_edit/$1');
+$routes->get('product/(:num)/delete', 'ProductController::product_delete_process/$1');
+$routes->post('product/(:num)/edit', 'ProductController::product_edit_process/$1');
+$routes->get('product/(:num)/variant/(:num)/delete', 'ProductController::product_varian_delete_process/$1/$2');
 $routes->post('product/add', 'ProductController::product_add_process');
 
 $routes->get('user', 'UserController::user');
