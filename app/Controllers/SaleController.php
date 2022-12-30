@@ -68,31 +68,67 @@ class SaleController extends CoreController
         return redirect()->to(base_url('sale/' . $newID . '/manage'));
     }
 
+    public function sale_edit_process()
+    {
+        $sale_id = $this->request->getPost("sale_id");
+        $customer_id = $this->request->getPost("customer_id");
+        $paid = $this->request->getPost("paid");
+        $date = $this->request->getPost("date");
+        $notes = $this->request->getPost("notes");
+
+        $this->saleModel->where("id", $sale_id)->set([
+            "customer_id"       => $customer_id,
+            "paid"              => $paid,
+            "date"              => $date,
+            "notes"             => $notes,
+        ])->update();
+
+        $this->session->setFlashdata("msg_type", "success");
+        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Data penjualan berhasil disimpan.");
+        return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+    }
+
+    public function sale_delete($sale_id)
+    {
+        $data_sale = $this->saleModel->where('id', $sale_id)->first();
+        if ($data_sale == NULL) {
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Penjualan tidak ditemukan.");
+            return redirect()->to(base_url('sale'));
+        }
+
+        $cek_sale_items = $this->saleItemModel->where('sale_id', $sale_id)->findAll();
+
+        if ($cek_sale_items) {
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Penjualan No. Transaksi : $data_sale->number gagal dihapus karena data tidak kosong.");
+            return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+        }
+
+        $this->saleModel->where("id", $sale_id)->delete();
+
+        $this->session->setFlashdata("msg_type", "success");
+        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Penjualan berhasil dihapus.");
+        return redirect()->to(base_url('sale'));
+    }
+
     public function sale_manage($id)
     {
         $sale = $this->saleModel->where("id", $id)->where("admin_id", $this->session->admin_id)->first();
 
         if ($sale == NULL) {
             $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Data pembelian tidak ditemukan.");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Data Penjualan tidak ditemukan.");
             return redirect()->to(base_url('sale'));
         }
 
         $items = $this->saleItemModel->where("sale_id", $id)->findAll();
         $customers = $this->customerModel->orderBy("name", "asc")->findAll();
-        // $products = $this->productVariantModel
-        //     ->join('products', 'product_variants.product_id = products.id')
-        //     ->select([
-        //         'product_variants.id as product_variant_id',
-        //         'product_variants.unit as product_variant_unit',
-        //         'products.id as product_id',
-        //         'products.unit as product_unit',
-        //         'products.name as product_name',
-        //     ])->findAll();
+
         $products = $this->productModel->orderBy("name", "asc")->findAll();
         $product_variants = $this->productVariantModel->orderBy("unit", "asc")->findAll();
 
-        // dd($products);
+
 
         $data = ([
             "db"    => $this->db,
@@ -108,7 +144,7 @@ class SaleController extends CoreController
 
     public function sale_item_add()
     {
-        $sale_id = $this->request->getPost("sale");
+        $sale_id = $this->request->getPost("sale_id");
         $product = $this->request->getPost("product_id");
         $quantity = $this->request->getPost("quantity");
         $discount = $this->request->getPost("discount");
@@ -124,15 +160,19 @@ class SaleController extends CoreController
             $productId = $productData->id;
             $productUnit = $productData->unit;
             $productPrice = $productData->price;
+            $perhitungan_qty = $quantity;
+            $productStock = $productData->stocks;
         } elseif ($productExplode[1] && $productExplode[3] != 0) {
             $productData = $this->productVariantModel
                 ->select([
                     'product_variants.id as product_variants_id',
                     'product_variants.unit as product_variants_unit',
                     'product_variants.price as product_variants_price',
+                    'product_variants.quantity_included as product_variants_quantity_included',
                     'products.id as product_id',
                     'products.name',
                     'products.unit as product_unit',
+                    'products.stocks as product_stock',
                 ])
                 ->join('products', 'product_variants.product_id = products.id')
                 ->where(['product_variants.id' => $productExplode[3], 'product_variants.product_id' => $productExplode[1]])
@@ -141,21 +181,130 @@ class SaleController extends CoreController
             $productId = $productData->product_id;
             $productUnit = $productData->product_variants_unit;
             $productPrice = $productData->product_variants_price;
+            $perhitungan_qty = $productData->product_variants_quantity_included * $quantity;
+            $productStock = $productData->product_stock;
         }
 
-        $this->saleItemModel->insert([
-            "sale_id" =>  $sale_id,
-            "product_id"                => $productId,
-            "product_variant_id"        => $productVariantId,
-            "snapshot_product_name"     => $productData->name,
-            "snapshot_product_unit"     => $productUnit,
-            "quantity"              => $quantity,
-            "price"             => $productPrice,
-            "discount"             => $discount,
-        ]);
+
+        if ($productStock < $perhitungan_qty) {
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Stok Produk Kurang !");
+            return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+        } else {
+
+            $this->saleItemModel->insert([
+                "sale_id" =>  $sale_id,
+                "product_id"                => $productId,
+                "product_variant_id"        => $productVariantId,
+                "snapshot_product_name"     => $productData->name,
+                "snapshot_product_unit"     => $productUnit,
+                "quantity"              => $quantity,
+                "price"             => $productPrice,
+                "discount"             => $discount,
+            ]);
+
+            $this->productModel->where("id", $productId)->set([
+                "stocks"        => ($productStock - $perhitungan_qty)
+            ])->update();
+
+            $this->session->setFlashdata("msg_type", "success");
+            $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil dibuat.");
+            return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+        }
+    }
+
+    public function sale_item_edit()
+    {
+        $sale_id = $this->request->getPost("sale_id");
+        $sale_item_id = $this->request->getPost("sale_item_id");
+        $quantity_old = $this->request->getPost("quantity_old");
+        $quantity = $this->request->getPost("quantity");
+        $discount = $this->request->getPost("discount");
+        $product_id = $this->request->getPost("product_id");
+        $product_variant_id = $this->request->getPost("product_variant_id");
+
+        $data_product = $this->productModel->where('id', $product_id)->first();
+
+        if ($product_variant_id == null) {
+            $newStock = 0;
+            if ($quantity_old != $quantity) {
+                $newStock = $quantity - $quantity_old;
+            }
+        } else {
+            $data_product_variant = $this->productVariantModel->where('id', $product_variant_id)->where('product_id', $product_id)->first();
+            $perhitungan_qty = $quantity * $data_product_variant->quantity_included;
+            $quantity_old_variant = $quantity_old * $data_product_variant->quantity_included;
+
+            $newStock = 0;
+            if ($quantity_old != $quantity) {
+                $newStock = $perhitungan_qty - $quantity_old_variant;
+            }
+        }
+
+        if ($data_product->stocks - $newStock < 0) {
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Stok Produk Kurang !");
+            return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+        }
+
+        $this->productModel->where("id", $product_id)->set([
+            "stocks"        => ($data_product->stocks - $newStock)
+        ])->update();
+
+        $this->saleItemModel->where("id", $sale_item_id)->set([
+            "quantity"                  => $quantity,
+            "discount"                  => $discount,
+        ])->update();
 
         $this->session->setFlashdata("msg_type", "success");
-        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil dibuat.");
+        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil diubah.");
         return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+    }
+
+    public function sale_item_delete($sale_id, $sale_items_id)
+    {
+        $data_sale_item = $this->saleItemModel->where('id', $sale_items_id)->first();
+
+        if ($data_sale_item->product_variant_id == null) {
+            $quantity = $data_sale_item->quantity;
+        } else {
+            $data_product_variant = $this->productVariantModel->where('id', $data_sale_item->product_variant_id)->where('product_id', $data_sale_item->product_id)->first();
+            $quantity = $data_sale_item->quantity * $data_product_variant->quantity_included;
+        }
+
+        $data_product = $this->productModel->where('id', $data_sale_item->product_id)->first();
+
+        $this->productModel->where("id", $data_product->id)->set([
+            "stocks" => $data_product->stocks + $quantity,
+        ])->update();
+
+        $this->saleItemModel->delete($sale_items_id);
+
+        $this->session->setFlashdata("msg_type", "success");
+        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil dihapus.");
+        return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
+    }
+
+    public function sale_print($sale_id)
+    {
+        $sale = $this->saleModel->where("id", $sale_id)->where("admin_id", $this->session->admin_id)->first();
+
+        if ($sale == NULL) {
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Data Penjualan tidak ditemukan.");
+            return redirect()->to(base_url('sale'));
+        }
+
+        $items = $this->saleItemModel->where("sale_id", $sale_id)->findAll();
+        $products = $this->productModel->orderBy("name", "asc")->findAll();
+
+        $data = ([
+            "db"    => $this->db,
+            "sale"   => $sale,
+            "items" => $items,
+            "products" => $products,
+        ]);
+
+        return view("modules/sale_print", $data);
     }
 }

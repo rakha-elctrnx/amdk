@@ -100,6 +100,11 @@ $routes->get("sale/add", "SaleController::sale_add");
 $routes->post("sale/add", "SaleController::sale_add_process");
 $routes->get("sale/(:num)/manage", "SaleController::sale_manage/$1");
 $routes->post("sale/item/add", "SaleController::sale_item_add");
+$routes->post("sale/item/edit", "SaleController::sale_item_edit");
+$routes->get("sale/(:num)/item/(:num)/delete", "SaleController::sale_item_delete/$1/$2");
+$routes->post("sale/edit", "SaleController::sale_edit_process");
+$routes->get("sale/(:num)/delete", "SaleController::sale_delete/$1");
+$routes->get("sale/(:num)/print", "SaleController::sale_print/$1");
 /*
  * --------------------------------------------------------------------
  * Additional Routing
