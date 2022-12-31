@@ -1,0 +1,440 @@
+CRITICAL - 2022-12-30 10:01:59 --> Undefined variable: productions
+in APPPATH\Views\modules\production.php on line 48.
+ 1 APPPATH\Views\modules\production.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: productions', 'APPPATH\\Views\\modules\\production.php', 48, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(26): view('modules/production', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_add()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 10:27:03 --> Call to undefined function now()
+in APPPATH\Views\modules\production_add.php on line 67.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_add', [], true)
+ 4 APPPATH\Controllers\ProductionController.php(26): view('modules/production_add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_add()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-30 11:24:53 --> mysqli_sql_exception: Unknown column 'target' in 'field list' in C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `pr...', 0)
+#1 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\laragon\www\projects\amdk\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\laragon\www\projects\amdk\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\projects\amdk\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\projects\amdk\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\projects\amdk\app\Controllers\ProductionController.php(47): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\projects\amdk\system\CodeIgniter.php(927): App\Controllers\ProductionController->production_add_process()
+#9 C:\laragon\www\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+#10 C:\laragon\www\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2022-12-30 11:24:53 --> Unknown column 'target' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `productions` (`product_id`, `target`, `achieved`, `faileds`, `production_date`, `estimation_date`, `finish_date`) VALUES (\'10\', NULL, \'\', \'\', \'2022-12-30\', \'2022-12-31\', \'2022-12-30\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `productions` (`product_id`, `target`, `achieved`, `faileds`, `production_date`, `estimation_date`, `finish_date`) VALUES (\'10\', NULL, \'\', \'\', \'2022-12-30\', \'2022-12-31\', \'2022-12-30\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `productions` (`product_id`, `target`, `achieved`, `faileds`, `production_date`, `estimation_date`, `finish_date`) VALUES (\'10\', NULL, \'\', \'\', \'2022-12-30\', \'2022-12-31\', \'2022-12-30\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `productions` (`product_id`, `target`, `achieved`, `faileds`, `production_date`, `estimation_date`, `finish_date`) VALUES (:product_id:, :target:, :achieved:, :faileds:, :production_date:, :estimation_date:, :finish_date:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\ProductionController.php(47): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_add_process()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 11:26:44 --> Too few arguments to function App\Controllers\ProductionController::production_manage(), 0 passed in C:\laragon\www\projects\amdk\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\ProductionController.php on line 68.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 11:27:02 --> Undefined property: App\Controllers\ProductionController::$ingredients
+in APPPATH\Controllers\ProductionController.php on line 73.
+ 1 APPPATH\Controllers\ProductionController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\ProductionController::$ingredients', 'APPPATH\\Controllers\\ProductionController.php', 73, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-30 11:27:33 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 4 in C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\projects\amdk\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\projects\amdk\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\projects\amdk\app\Controllers\ProductionController.php(76): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\projects\amdk\system\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+#8 C:\laragon\www\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+#9 C:\laragon\www\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2022-12-30 11:27:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':0:
+AND 1 = :1:' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE 0 = :0:
+AND 1 = :1:', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE 0 = :0:
+AND 1 = :1:')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE 0 = :0:
+AND 1 = :1:')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE 0 = :0:
+AND 1 = :1:', [...], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ProductionController.php(76): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-30 11:28:24 --> mysqli_sql_exception: Unknown column 'ingrediensts.production_id' in 'where clause' in C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\projects\amdk\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\projects\amdk\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\projects\amdk\app\Controllers\ProductionController.php(76): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\projects\amdk\system\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+#8 C:\laragon\www\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+#9 C:\laragon\www\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2022-12-30 11:28:24 --> Unknown column 'ingrediensts.production_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE `ingrediensts`.`production_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE `ingrediensts`.`production_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE `ingrediensts`.`production_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `ingredients`
+JOIN `materials` ON `ingredients`.`material_id` = `materials`.`id`
+WHERE `ingrediensts`.`production_id` = :ingrediensts.production_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ProductionController.php(76): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 11:28:49 --> Invalid file: modules/production_manage.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('modules/production_manage.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 3 APPPATH\Controllers\ProductionController.php(84): view('modules/production_manage', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 16:17:57 --> Trying to get property 'number' of non-object
+in APPPATH\Views\modules\production.php on line 53.
+ 1 APPPATH\Views\modules\production.php(53): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'number\' of non-object', 'APPPATH\\Views\\modules\\production.php', 53, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(18): view('modules/production', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 16:18:55 --> Undefined property: stdClass::$target
+in APPPATH\Views\modules\production.php on line 55.
+ 1 APPPATH\Views\modules\production.php(55): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$target', 'APPPATH\\Views\\modules\\production.php', 55, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(18): view('modules/production', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 16:22:53 --> Undefined variable: dataAccount
+in APPPATH\Views\modules\production_manage.php on line 54.
+ 1 APPPATH\Views\modules\production_manage.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: dataAccount', 'APPPATH\\Views\\modules\\production_manage.php', 54, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 16:25:00 --> Undefined variable: products
+in APPPATH\Views\modules\production_manage.php on line 32.
+ 1 APPPATH\Views\modules\production_manage.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: products', 'APPPATH\\Views\\modules\\production_manage.php', 32, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 16:27:05 --> Undefined variable: productionData
+in APPPATH\Views\modules\production_manage.php on line 31.
+ 1 APPPATH\Views\modules\production_manage.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: productionData', 'APPPATH\\Views\\modules\\production_manage.php', 31, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 16:27:20 --> Undefined property: stdClass::$name
+in APPPATH\Views\modules\production_manage.php on line 31.
+ 1 APPPATH\Views\modules\production_manage.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$name', 'APPPATH\\Views\\modules\\production_manage.php', 31, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 17:34:12 --> Undefined variable: buy
+in APPPATH\Views\modules\production_manage.php on line 87.
+ 1 APPPATH\Views\modules\production_manage.php(87): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: buy', 'APPPATH\\Views\\modules\\production_manage.php', 87, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 17:38:00 --> Undefined variable: product_variants
+in APPPATH\Views\modules\production_manage.php on line 188.
+ 1 APPPATH\Views\modules\production_manage.php(188): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: product_variants', 'APPPATH\\Views\\modules\\production_manage.php', 188, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 17:38:19 --> Undefined variable: product_variants
+in APPPATH\Views\modules\production_manage.php on line 179.
+ 1 APPPATH\Views\modules\production_manage.php(179): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: product_variants', 'APPPATH\\Views\\modules\\production_manage.php', 179, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 18:04:54 --> Undefined variable: buy
+in APPPATH\Views\modules\production_manage.php on line 243.
+ 1 APPPATH\Views\modules\production_manage.php(243): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: buy', 'APPPATH\\Views\\modules\\production_manage.php', 243, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(89): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-30 20:28:02 --> mysqli_sql_exception: Unknown column 'snapshot_material_quantity' in 'field list' in C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `in...', 0)
+#1 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `in...')
+#2 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `in...')
+#3 C:\laragon\www\projects\amdk\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `in...', Array, false)
+#4 C:\laragon\www\projects\amdk\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\projects\amdk\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\projects\amdk\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\projects\amdk\app\Controllers\ProductionController.php(119): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\projects\amdk\system\CodeIgniter.php(927): App\Controllers\ProductionController->ingredient_add_process()
+#9 C:\laragon\www\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+#10 C:\laragon\www\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2022-12-30 20:28:02 --> Unknown column 'snapshot_material_quantity' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ingredients` (`production_id`, `material_id`, `snapshot_material_name`, `snapshot_material_unit`, `snapshot_material_price`, `snapshot_material_quantity`) VALUES (\'1\', \'1\', \'Air Gunung\', \'Galons\', \'50000\', \'5\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ingredients` (`production_id`, `material_id`, `snapshot_material_name`, `snapshot_material_unit`, `snapshot_material_price`, `snapshot_material_quantity`) VALUES (\'1\', \'1\', \'Air Gunung\', \'Galons\', \'50000\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ingredients` (`production_id`, `material_id`, `snapshot_material_name`, `snapshot_material_unit`, `snapshot_material_price`, `snapshot_material_quantity`) VALUES (\'1\', \'1\', \'Air Gunung\', \'Galons\', \'50000\', \'5\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ingredients` (`production_id`, `material_id`, `snapshot_material_name`, `snapshot_material_unit`, `snapshot_material_price`, `snapshot_material_quantity`) VALUES (:production_id:, :material_id:, :snapshot_material_name:, :snapshot_material_unit:, :snapshot_material_price:, :snapshot_material_quantity:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\ProductionController.php(119): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->ingredient_add_process()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 20:28:25 --> syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'
+in APPPATH\Controllers\ProductionController.php on line 133.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\ProductionController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\ProductionController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\ProductionController')
+ 4 [internal function]: spl_autoload_call('App\\Controllers\\ProductionController')
+ 5 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\ProductionController', true)
+ 6 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 20:28:55 --> Undefined property: stdClass::$price
+in APPPATH\Views\modules\production_manage.php on line 180.
+ 1 APPPATH\Views\modules\production_manage.php(180): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$price', 'APPPATH\\Views\\modules\\production_manage.php', 180, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(96): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 20:30:17 --> Undefined property: stdClass::$price
+in APPPATH\Views\modules\production_manage.php on line 193.
+ 1 APPPATH\Views\modules\production_manage.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$price', 'APPPATH\\Views\\modules\\production_manage.php', 193, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(96): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 20:31:39 --> Undefined property: stdClass::$snapshot_product_unit
+in APPPATH\Views\modules\production_manage.php on line 173.
+ 1 APPPATH\Views\modules\production_manage.php(173): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$snapshot_product_unit', 'APPPATH\\Views\\modules\\production_manage.php', 173, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(96): view('modules/production_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-30 21:02:59 --> mysqli_sql_exception: Unknown column 'price' in 'field list' in C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('UPDATE `ingredi...', 0)
+#1 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `ingredi...')
+#2 C:\laragon\www\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `ingredi...')
+#3 C:\laragon\www\projects\amdk\system\Database\BaseBuilder.php(2079): CodeIgniter\Database\BaseConnection->query('UPDATE `ingredi...', Array, false)
+#4 C:\laragon\www\projects\amdk\system\Model.php(338): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\laragon\www\projects\amdk\system\BaseModel.php(886): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\laragon\www\projects\amdk\system\Model.php(693): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\laragon\www\projects\amdk\app\Controllers\ProductionController.php(154): CodeIgniter\Model->update()
+#8 C:\laragon\www\projects\amdk\system\CodeIgniter.php(927): App\Controllers\ProductionController->ingredient_edit_process()
+#9 C:\laragon\www\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+#10 C:\laragon\www\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2022-12-30 21:02:59 --> Unknown column 'price' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('UPDATE `ingredients` SET `quantity` = \'10\', `price` = \'50000\'
+WHERE `id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `ingredients` SET `quantity` = \'10\', `price` = \'50000\'
+WHERE `id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `ingredients` SET `quantity` = \'10\', `price` = \'50000\'
+WHERE `id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2079): CodeIgniter\Database\BaseConnection->query('UPDATE `ingredients` SET `quantity` = :quantity:, `price` = :price:
+WHERE `id` = :id:', [...], false)
+ 5 SYSTEMPATH\Model.php(338): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(886): CodeIgniter\Model->doUpdate(null, [...])
+ 7 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update(null, [...])
+ 8 APPPATH\Controllers\ProductionController.php(154): CodeIgniter\Model->update()
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->ingredient_edit_process()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 21:22:30 --> Undefined property: App\Controllers\ProductionController::$productionModel
+in APPPATH\Controllers\ProductionController.php on line 164.
+ 1 APPPATH\Controllers\ProductionController.php(164): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\ProductionController::$productionModel', 'APPPATH\\Controllers\\ProductionController.php', 164, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->ingredient_delete('1', '1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 21:22:56 --> Object of class stdClass could not be converted to number
+in APPPATH\Controllers\ProductionController.php on line 174.
+ 1 APPPATH\Controllers\ProductionController.php(174): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Object of class stdClass could not be converted to number', 'APPPATH\\Controllers\\ProductionController.php', 174, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->ingredient_delete('1', '1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 21:50:03 --> Trying to get property 'name' of non-object
+in APPPATH\Controllers\ProductionController.php on line 44.
+ 1 APPPATH\Controllers\ProductionController.php(44): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'name\' of non-object', 'APPPATH\\Controllers\\ProductionController.php', 44, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_add_process()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 23:12:50 --> Trying to get property 'name' of non-object
+in APPPATH\Controllers\ProductionController.php on line 44.
+ 1 APPPATH\Controllers\ProductionController.php(44): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'name\' of non-object', 'APPPATH\\Controllers\\ProductionController.php', 44, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_add_process()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-30 23:13:01 --> Trying to get property 'name' of non-object
+in APPPATH\Controllers\ProductionController.php on line 44.
+ 1 APPPATH\Controllers\ProductionController.php(44): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'name\' of non-object', 'APPPATH\\Controllers\\ProductionController.php', 44, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_add_process()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

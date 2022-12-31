@@ -1,0 +1,462 @@
+CRITICAL - 2022-12-28 05:23:02 --> Undefined property: stdClass::$quantity_before
+in APPPATH\Views\modules\buy_manage.php on line 140.
+ 1 APPPATH\Views\modules\buy_manage.php(140): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$quantity_before', 'APPPATH\\Views\\modules\\buy_manage.php', 140)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\buy_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/buy_manage', [], true)
+ 5 APPPATH\Controllers\BuyController.php(90): view('modules/buy_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\BuyController->buy_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BuyController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 07:14:42 --> Undefined property: App\Controllers\SaleController::$saleItemModel
+in APPPATH\Controllers\SaleController.php on line 81.
+ 1 APPPATH\Controllers\SaleController.php(81): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\SaleController::$saleItemModel', 'APPPATH\\Controllers\\SaleController.php', 81)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 07:17:10 --> Undefined variable $materials
+in APPPATH\Views\modules\sale_manage.php on line 196.
+ 1 APPPATH\Views\modules\sale_manage.php(196): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $materials', 'APPPATH\\Views\\modules\\sale_manage.php', 196)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(93): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 07:17:36 --> Undefined variable $materials
+in APPPATH\Views\modules\sale_manage.php on line 196.
+ 1 APPPATH\Views\modules\sale_manage.php(196): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $materials', 'APPPATH\\Views\\modules\\sale_manage.php', 196)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(93): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 07:17:38 --> Undefined variable $materials
+in APPPATH\Views\modules\sale_manage.php on line 196.
+ 1 APPPATH\Views\modules\sale_manage.php(196): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $materials', 'APPPATH\\Views\\modules\\sale_manage.php', 196)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(93): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:05:43 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 4.
+ 1 APPPATH\Views\modules\sale_select_variant.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:06:01 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 4.
+ 1 APPPATH\Views\modules\sale_select_variant.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:06:24 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 4.
+ 1 APPPATH\Views\modules\sale_select_variant.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:13:03 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 4.
+ 1 APPPATH\Views\modules\sale_select_variant.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:13:11 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 4.
+ 1 APPPATH\Views\modules\sale_select_variant.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:14:48 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 4.
+ 1 APPPATH\Views\modules\sale_select_variant.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:16:02 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 3.
+ 1 APPPATH\Views\modules\sale_select_variant.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 3)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:16:30 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 5.
+ 1 APPPATH\Views\modules\sale_select_variant.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:16:32 --> Undefined variable $sale
+in APPPATH\Views\modules\sale_select_variant.php on line 5.
+ 1 APPPATH\Views\modules\sale_select_variant.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sale', 'APPPATH\\Views\\modules\\sale_select_variant.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:18:32 --> Undefined variable $db
+in APPPATH\Views\modules\sale_select_variant.php on line 8.
+ 1 APPPATH\Views\modules\sale_select_variant.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'APPPATH\\Views\\modules\\sale_select_variant.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:18:51 --> Undefined variable $db
+in APPPATH\Views\modules\sale_select_variant.php on line 8.
+ 1 APPPATH\Views\modules\sale_select_variant.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'APPPATH\\Views\\modules\\sale_select_variant.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(110): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 08:23:20 --> Attempt to read property "id" on null
+in APPPATH\Views\modules\sale_select_variant.php on line 4.
+ 1 APPPATH\Views\modules\sale_select_variant.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Views\\modules\\sale_select_variant.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_select_variant.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_select_variant', [], true)
+ 5 APPPATH\Controllers\SaleController.php(112): view('modules/sale_select_variant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_select_variant()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 12:55:21 --> Undefined variable $products_variant
+in APPPATH\Views\modules\sale_manage.php on line 198.
+ 1 APPPATH\Views\modules\sale_manage.php(198): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $products_variant', 'APPPATH\\Views\\modules\\sale_manage.php', 198)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(95): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-28 13:07:59 --> mysqli_sql_exception: Unknown column 'products_variant_id' in 'where clause' in C:\xampp\htdocs\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\projects\amdk\app\Views\modules\sale_manage.php(199): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projects\amdk\system\View\View.php(213): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\projects\amdk\system\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\projects\amdk\system\Common.php(1134): CodeIgniter\View\View->render('modules/sale_ma...', Array, true)
+#8 C:\xampp\htdocs\projects\amdk\app\Controllers\SaleController.php(95): view('modules/sale_ma...', Array)
+#9 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+#10 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+#11 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2022-12-28 13:07:59 --> Unknown column 'products_variant_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `sale_items`
+WHERE `products_variant_id` = \'1\'
+AND `sale_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sale_items`
+WHERE `products_variant_id` = \'1\'
+AND `sale_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sale_items`
+WHERE `products_variant_id` = \'1\'
+AND `sale_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sale_items`
+WHERE `products_variant_id` = :products_variant_id:
+AND `sale_id` = :sale_id:', [...], false)
+ 5 APPPATH\Views\modules\sale_manage.php(199): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 9 APPPATH\Controllers\SaleController.php(95): view('modules/sale_manage', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-28 13:51:25 --> mysqli_sql_exception: Unknown column 'product.id' in 'group statement' in C:\xampp\htdocs\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\projects\amdk\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projects\amdk\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projects\amdk\app\Controllers\SaleController.php(91): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+#8 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+#9 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2022-12-28 13:51:25 --> Unknown column 'product.id' in 'group statement'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `products`
+JOIN `product_variants` ON `products`.`id` = `product_variants`.`product_id`
+GROUP BY `product`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `products`
+JOIN `product_variants` ON `products`.`id` = `product_variants`.`product_id`
+GROUP BY `product`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `products`
+JOIN `product_variants` ON `products`.`id` = `product_variants`.`product_id`
+GROUP BY `product`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `products`
+JOIN `product_variants` ON `products`.`id` = `product_variants`.`product_id`
+GROUP BY `product`.`id`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\SaleController.php(91): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-28 13:59:34 --> mysqli_sql_exception: Unknown column 'products.product_id' in 'group statement' in C:\xampp\htdocs\projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\projects\amdk\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projects\amdk\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projects\amdk\app\Controllers\SaleController.php(91): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+#8 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+#9 C:\xampp\htdocs\projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projects\amdk\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2022-12-28 13:59:34 --> Unknown column 'products.product_id' in 'group statement'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `product_variants`
+JOIN `products` ON `product_variants`.`product_id` = `products`.`id`
+GROUP BY `products`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `product_variants`
+JOIN `products` ON `product_variants`.`product_id` = `products`.`id`
+GROUP BY `products`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `product_variants`
+JOIN `products` ON `product_variants`.`product_id` = `products`.`id`
+GROUP BY `products`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `product_variants`.`id` as `product_variant_id`, `product_variants`.`unit` as `product_variant_unit`, `products`.`id` as `product_id`, `products`.`unit` as `product_unit`, `products`.`name` as `product_name`
+FROM `product_variants`
+JOIN `products` ON `product_variants`.`product_id` = `products`.`id`
+GROUP BY `products`.`product_id`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\SaleController.php(91): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 14:06:46 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::get()
+in APPPATH\Views\modules\sale_manage.php on line 197.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 4 APPPATH\Controllers\SaleController.php(105): view('modules/sale_manage', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 14:07:04 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::findAll()
+in APPPATH\Views\modules\sale_manage.php on line 197.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 4 APPPATH\Controllers\SaleController.php(105): view('modules/sale_manage', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 14:07:27 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::findAll()
+in APPPATH\Views\modules\sale_manage.php on line 196.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 4 APPPATH\Controllers\SaleController.php(105): view('modules/sale_manage', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 14:09:36 --> syntax error, unexpected identifier "dd"
+in APPPATH\Views\modules\sale_manage.php on line 199.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 3 APPPATH\Controllers\SaleController.php(105): view('modules/sale_manage', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 17:46:13 --> Undefined property: stdClass::$product_id
+in APPPATH\Controllers\SaleController.php on line 147.
+ 1 APPPATH\Controllers\SaleController.php(147): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$product_id', 'APPPATH\\Controllers\\SaleController.php', 147, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_item_add()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 17:49:20 --> Undefined property: stdClass::$quantity_before
+in APPPATH\Views\modules\sale_manage.php on line 140.
+ 1 APPPATH\Views\modules\sale_manage.php(140): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$quantity_before', 'APPPATH\\Views\\modules\\sale_manage.php', 140, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 17:49:45 --> Undefined property: stdClass::$material_id
+in APPPATH\Views\modules\sale_manage.php on line 141.
+ 1 APPPATH\Views\modules\sale_manage.php(141): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$material_id', 'APPPATH\\Views\\modules\\sale_manage.php', 141, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 17:49:46 --> Undefined property: stdClass::$material_id
+in APPPATH\Views\modules\sale_manage.php on line 141.
+ 1 APPPATH\Views\modules\sale_manage.php(141): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$material_id', 'APPPATH\\Views\\modules\\sale_manage.php', 141, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 17:49:52 --> Undefined property: stdClass::$material_id
+in APPPATH\Views\modules\sale_manage.php on line 141.
+ 1 APPPATH\Views\modules\sale_manage.php(141): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$material_id', 'APPPATH\\Views\\modules\\sale_manage.php', 141, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 17:52:25 --> Undefined property: stdClass::$snapshot_material_unit
+in APPPATH\Views\modules\sale_manage.php on line 153.
+ 1 APPPATH\Views\modules\sale_manage.php(153): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$snapshot_material_unit', 'APPPATH\\Views\\modules\\sale_manage.php', 153, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-28 17:55:36 --> Undefined property: stdClass::$quantity_before
+in APPPATH\Views\modules\sale_manage.php on line 140.
+ 1 APPPATH\Views\modules\sale_manage.php(140): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$quantity_before', 'APPPATH\\Views\\modules\\sale_manage.php', 140, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\sale_manage.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/sale_manage', [], true)
+ 5 APPPATH\Controllers\SaleController.php(106): view('modules/sale_manage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SaleController->sale_manage('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SaleController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

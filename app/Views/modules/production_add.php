@@ -1,16 +1,16 @@
 <?= $this->extend("template") ?>
 
 <?= $this->section("tab_title") ?>
-Buat Pembelian
+Buat Produksi
 <?= $this->endSection() ?>
 
 <?= $this->section("title") ?>
-Buat Pembelian
+Buat Produksi
 <?= $this->endSection() ?>
 
 <?= $this->section("breadcrumb") ?>
 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-<li class="breadcrumb-item"><a href="<?= base_url('buy') ?>">Pembelian</a></li>
+<li class="breadcrumb-item"><a href="<?= base_url('buy') ?>">Produksi</a></li>
 <li class="breadcrumb-item active">Buat</li>
 <?= $this->endSection() ?>
 
@@ -20,19 +20,19 @@ Buat Pembelian
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Buat Data Pembelian</h3>
+                <h3 class="card-title">Buat Data Produksi</h3>
             </div>
             <div class="card-body">
-                <form action="<?= base_url("buy/add") ?>" method="post">
+                <form action="<?= base_url("production/add") ?>" method="post">
                     <div class="row mb-2">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Pemasok</label>
-                                <select class="form-control" name="supplier">
+                                <label>Produk</label>
+                                <select class="form-control" name="product">
                                     <?php
-                                    foreach ($suppliers as $supplier) {
+                                    foreach ($products as $product) {
                                     ?>
-                                        <option value="<?= $supplier->id ?>"><?= $supplier->name ?></option>
+                                        <option value="<?= $product->id ?>"><?= $product->name ?> (Satuan Default : <?= $product->unit; ?>)</option>
                                     <?php
                                     }
                                     ?>
@@ -41,25 +41,37 @@ Buat Pembelian
                         </div>
                     </div>
                     <div class="row mb-2">
+
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>No. Faktur</label>
-                                <input type="text" name='invoice' class='form-control' placeholder="No. Faktur dari Pemasok" required>
+                                <label>Tanggal Produksi</label>
+                                <input type="date" name='production_date' value="<?= date('Y-m-d'); ?>" class='form-control' required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Tanggal Pembelian</label>
-                                <input type="date" name='date' class='form-control' required>
+                                <label>Estimasi Produksi</label>
+                                <input type="date" name='estimation_date' class='form-control' required>
                             </div>
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label>Catatan / Keterangan</label>
-                                <textarea name="notes" class="form-control" placeholder="Catatan / Keterangan" required></textarea>
-                                <small class='form-text text-muted'>Jika tidak ada maka tulis saja - (strip)</small>
+                                <label>Target</label>
+                                <input type="number" name='targets' class='form-control' placeholder="Target jumlah Produksi" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Produksi Berhasil</label>
+                                <input type="number" name='achieveds' class='form-control' placeholder="Total Produksi Yang Berhasil" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Produksi Gagal</label>
+                                <input type="number" name='faileds' class='form-control' placeholder="Total Produksi Yang Gagal" required>
                             </div>
                         </div>
                     </div>

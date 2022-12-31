@@ -263,6 +263,38 @@ $uri = current_url(true);
 	<!-- AdminLTE App -->
 	<script src="<?= base_url('adminlte') ?>/dist/js/adminlte.min.js"></script>
 
+	<!-- Select2 -->
+	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+	<!-- Select2 -->
+	<script src="<?= base_url('adminlte') ?>/plugins/select2/js/select2.full.min.js"></script>
+
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//Initialize Select2 Elements
+			$('.select2').select2({
+				theme: 'bootstrap4'
+			})
+
+			//Initialize Select2 Elements
+			$('.select2bs4').select2({
+				theme: 'bootstrap4'
+			})
+
+			$(".select2-modalAdd").select2({
+				dropdownParent: $('#modalAdd'),
+				theme: 'bootstrap4'
+			})
+			$(".select2-modalEdit").select2({
+				dropdownParent: $('#modalEdit'),
+				theme: 'bootstrap4'
+			})
+		});
+	</script>
+
 	<script>
 		$(function() {
 			$("#datatable1").DataTable({

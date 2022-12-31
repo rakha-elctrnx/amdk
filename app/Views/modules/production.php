@@ -1,16 +1,16 @@
 <?= $this->extend("template") ?>
 
 <?= $this->section("tab_title") ?>
-Produk
+Pembelian Produksi
 <?= $this->endSection() ?>
 
 <?= $this->section("title") ?>
-Produk
+Produksi
 <?= $this->endSection() ?>
 
 <?= $this->section("breadcrumb") ?>
 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-<li class="breadcrumb-item active">Produk</li>
+<li class="breadcrumb-item active"> Produksi</li>
 <?= $this->endSection() ?>
 
 <?= $this->section("content") ?>
@@ -19,10 +19,10 @@ Produk
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">Data Produk</h3>
+                <h3 class="card-title p-3">Data Produksi</h3>
                 <ul class="nav nav-pills ml-auto p-2">
                     <li class="nav-item">
-                        <a href="<?= base_url('product/add') ?>" class='nav-link bg-primary rounded-pill'>
+                        <a href="<?= base_url('production/add') ?>" class='nav-link bg-primary rounded-pill'>
                             <i class='fa fa-plus'></i>
                             Tambah
                         </a>
@@ -34,31 +34,30 @@ Produk
                     <thead>
                         <tr>
                             <th class='text-center'>No</th>
-                            <th class='text-center'>Nama</th>
-                            <th class='text-center'>Persediaan</th>
-                            <th class='text-center'>Satuan</th>
-                            <th class='text-center'>Harga</th>
+                            <th class='text-center'>No. Produksi</th>
+                            <th class='text-center'>Produk</th>
+                            <th class='text-center'>Target</th>
+                            <th class='text-center'>Tanggal Produksi</th>
+                            <th class='text-center'>Estimasi Produksi</th>
                             <th class='text-center'></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 0;
-                        foreach ($products as $product) {
+                        foreach ($productions as $production) {
                             $no++;
                         ?>
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
-                                <td><?= $product->name ?></td>
-                                <td class='text-right'><?= number_format($product->stocks, 0, ",", ".") ?></td>
-                                <td><?= $product->unit ?></td>
-                                <td class='text-right'>Rp. <?= number_format($product->price, 0, ",", ".") ?></td>
+                                <td class='text-right'><?= $production->number ?></td>
+                                <td class='text-center'><?= $production->snapshot_product_name ?></td>
+                                <td class='text-right'><?= $production->targets ?></td>
+                                <td class='text-right'><?= date("d-m-Y", strtotime($production->production_date)) ?></td>
+                                <td class='text-right'><?= date("d-m-Y", strtotime($production->estimation_date)) ?></td>
                                 <td class='text-center'>
-                                    <a href="<?= base_url('product/' . $product->id . '/edit') ?>" class='btn btn-xs btn-success rounded-pill' title="Edit">
-                                        <i class='fa fa-edit'></i>
-                                    </a>
-                                    <a href="<?= base_url('product/'.$product->id.'/delete') ?>" class='btn btn-xs btn-danger rounded-pill' title="Hapus" onclick="return confirm('Yakin hapus <?= $product->name ?>.?')">
-                                        <i class='fa fa-trash'></i>
+                                    <a href="<?= base_url('production/' . $production->id . '/manage') ?>" class='btn btn-xs btn-success rounded-pill' title="Kelola">
+                                        <i class='fa fa-cog'></i>
                                     </a>
                                 </td>
                             </tr>
@@ -71,6 +70,7 @@ Produk
         </div>
     </div>
 </div>
+
 <?= $this->endSection() ?>
 
 <?= $this->section("script") ?>
