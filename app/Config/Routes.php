@@ -86,7 +86,20 @@ $routes->get('product/(:num)/edit', 'ProductController::product_edit/$1');
 $routes->get('product/(:num)/delete', 'ProductController::product_delete_process/$1');
 $routes->post('product/(:num)/edit', 'ProductController::product_edit_process/$1');
 $routes->get('product/(:num)/variant/(:num)/delete', 'ProductController::product_varian_delete_process/$1/$2');
-$routes->post('product/add', 'ProductController::product_add_process');
+$routes->post('product/add', 'ProductController::product_add_process/$1');
+
+$routes->get('production', 'ProductionController::production');
+$routes->get('production/add', 'ProductionController::production_add');
+$routes->get('production/(:num)/delete', 'ProductionController::production_delete/$1');
+$routes->get('production/(:num)/ingredient/(:num)/delete', 'ProductionController::ingredient_delete/$1/$2');
+$routes->post('production/add', 'ProductionController::production_add_process');
+$routes->post('production/edit', 'ProductionController::production_edit_process');
+$routes->post('production/ingredient/add', 'ProductionController::ingredient_add_process');
+$routes->post('production/ingredient/edit', 'ProductionController::ingredient_edit_process');
+$routes->get('production/(:num)/manage', 'ProductionController::production_manage/$1');
+$routes->get('production/(:num)/cost/(:num)/delete', 'ProductionController::cost_delete/$1/$2');
+$routes->post('production/cost/add', 'ProductionController::cost_add_process');
+$routes->post('production/cost/edit', 'ProductionController::cost_edit_process');
 
 $routes->get('user', 'UserController::user');
 $routes->get('user/add', 'UserController::user_add');

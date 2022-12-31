@@ -11,6 +11,7 @@ class CoreController extends BaseController
     protected $adminModel;
     protected $supplierModel;
     protected $customerModel;
+    protected $costModel;
     protected $materialModel;
     protected $transactionModel;
     protected $ProductionModel;
@@ -27,6 +28,7 @@ class CoreController extends BaseController
         $this->adminModel = new \App\Models\AdministratorModel();
         $this->supplierModel = new \App\Models\SupplierModel();
         $this->customerModel = new \App\Models\CustomerModel();
+        $this->costModel = new \App\Models\CostModel();
         $this->materialModel = new \App\Models\MaterialModel();
         $this->transactionModel = new \App\Models\TransactionModel();
         $this->ProductionModel = new \App\Models\ProductionModel();
