@@ -51,7 +51,8 @@ class Productions extends Migration
                 "type" => "DATE"
             ],
             "finish_date" => [
-                "type" => "DATE"
+                "type" => "DATE",
+                "null" => true,
             ],
             "achieveds" => [
                 "type" => "DOUBLE"
