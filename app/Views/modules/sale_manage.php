@@ -46,13 +46,7 @@ Kelola Penjualan
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Dibayar</label>
-                                <input type="number" value="<?= $sale->paid ?>" name='paid' class='form-control' placeholder="Dibayar dari Pelanggan" required>
-                            </div>
-                        </div>
+                    <div class="row mb-2">                        
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Tanggal Penjualan</label>
@@ -221,7 +215,7 @@ Kelola Penjualan
                                             if ($exist_product == NULL) :
                                             ?>
 
-                                                <option value="product-<?= $product->id ?>-variant-0"><?= $product->name; ?> (Satuan Default : <?= $product->unit; ?>)</option>
+                                                <option value="product-<?= $product->id ?>-variant-0"><?= $product->name; ?> (Rp. <?= number_format($product->price,0,",",".") ?>/<?= $product->unit ?>)</option>
                                             <?php
                                             endif;
                                             ?>
@@ -245,7 +239,7 @@ Kelola Penjualan
                                                 if ($exist_product_variant == NULL) :
                                                 ?>
 
-                                                    <option value="product-<?= $product->id ?>-variant-<?= $variant->id ?>"><?= $product->name; ?> (Satuan Lainya : <?= $variant->unit; ?>)</option>
+                                                    <option value="product-<?= $product->id ?>-variant-<?= $variant->id ?>"><?= $product->name; ?> (Rp. <?= number_format($variant->price,0,",",".") ?>/<?= $variant->unit ?>@<?= $variant->quantity_included ?> <?= $product->unit ?>)</option>
                                                 <?php
                                                 endif;
                                                 ?>

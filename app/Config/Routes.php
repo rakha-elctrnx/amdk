@@ -118,6 +118,15 @@ $routes->get("sale/(:num)/item/(:num)/delete", "SaleController::sale_item_delete
 $routes->post("sale/edit", "SaleController::sale_edit_process");
 $routes->get("sale/(:num)/delete", "SaleController::sale_delete/$1");
 $routes->get("sale/(:num)/print", "SaleController::sale_print/$1");
+
+$routes->get("report","ReportController::report");
+$routes->get("report/buy/print", "ReportController::report_buy_print");
+$routes->get("report/sale/print", "ReportController::report_sale_print");
+$routes->get("report/transaction/print", "ReportController::report_transaction_print");
+$routes->get("report/production/print", "ReportController::report_production_print");
+$routes->get("report/use/print", "ReportController::report_use_print");
+$routes->get("report/cost/print", "ReportController::report_cost_print");
+$routes->get("report/summary/print", "ReportController::report_summary_print");
 /*
  * --------------------------------------------------------------------
  * Additional Routing

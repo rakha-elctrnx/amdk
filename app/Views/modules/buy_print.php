@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= config("Custom")->appName ?> | <?= $this->renderSection("tab_title") ?></title>
+    <title><?= config("Custom")->appName ?> | Cetak Nota Pembelian</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/fontawesome-free/css/all.min.css">
@@ -33,7 +33,7 @@
         <tbody>
             <tr>
                 <td class='text-center'>
-                    <h2>INVOICE</h2>
+                    <h2>NOTA PEMBELIAN</h2>
                 </td>
             </tr>
         </tbody>
@@ -41,16 +41,7 @@
     <br>
     <table class='table table-bordered'>
         <tbody>
-            <tr>
-                <td>
-                    <?= config("Custom")->companyAddress ?>
-                    <br>
-                    <?= config("Custom")->companyMail ?>
-                    <br>
-                    <?= config("Custom")->companyPhone ?>
-                    <br>
-                    <?= config("Custom")->companyMobile ?>
-                </td>
+            <tr>                
                 <td width="50%">
                     <b><?= $buy->name ?></b>
                     <br>
@@ -63,9 +54,9 @@
                     <?= $buy->mobile ?>
                 </td>
                 <td class='text-center align-middle'>
-                    <b style='font-size:25'><?= $buy->number ?></b>
+                    <b style='font-size:25'>No. <?= $buy->number ?></b>
                     <br>
-                    <b style='font-size:25'><?= $buy->invoice_reference ?></b>
+                    <b style='font-size:25'>Ref. <?= $buy->invoice_reference ?></b>
                     <br>
                     <?= date("d-m-Y", strtotime($buy->date)) ?>
                 </td>
@@ -119,13 +110,13 @@
                     <?= nl2br($buy->notes) ?>
                 </td>
                 <td class='text-center'>
-                    <?= date("d-m-Y") ?>
+                    <?= config("Custom")->companyAreaLetter ?>, <?= date("d-m-Y") ?>
                     <br>
                     <br>
                     <br>
                     <br>
                     <br>
-                    <u>(..............................................)</u>
+                    <b><u><?= config("Login")->adminName ?></u></b>
                 </td>
             </tr>
         </tbody>

@@ -67,7 +67,7 @@ class BuyController extends CoreController
     }
     public function buy_manage($id)
     {
-        $buy = $this->buyModel->where("id", $id)->where("admin_id", $this->session->admin_id)->first();
+        $buy = $this->buyModel->where("id", $id)->first();
 
         if ($buy == NULL) {
             $this->session->setFlashdata("msg_type", "error");
@@ -122,7 +122,7 @@ class BuyController extends CoreController
 
         if ($BuyItemData) {
             $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Pembelian tidak dapat dihapus <br> karena bahan sudah dibeli.");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Pembelian yang memiliki item tidak dapat dihapus.");
             return redirect()->to(base_url('buy/' . $Buyid . '/manage'));
         }
 
@@ -193,7 +193,6 @@ class BuyController extends CoreController
             "material_id"               => $material,
             "snapshot_material_name"    => $thisMaterial->name,
             "snapshot_material_unit"    => $thisMaterial->unit,
-            "quantity_before"           => $thisMaterial->stocks + $quantity,
             "quantity"                  => $quantity,
             "price"                     => $price,
             "discount"                  => $discount,
@@ -214,16 +213,10 @@ class BuyController extends CoreController
         $material = $this->request->getPost("material");
         $price = $this->request->getPost("price");
         $quantity = $this->request->getPost("quantity");
-        $quantity_before = $this->request->getPost("quantity_before");
-        $quantity_old = $this->request->getPost("quantity_old");
         $discount = $this->request->getPost("discount");
 
+        $thisItem = $this->buyItemModel->where("id", $buyItemId)->first();
         $thisMaterial = $this->materialModel->where("id", $material)->first();
-        $newStock = 0;
-
-        if ($quantity_old != $quantity) {
-            $newStock = $quantity - $quantity_old;
-        }
 
         if ($thisMaterial == NULL) {
             $this->session->setFlashdata("msg_type", "error");
@@ -231,21 +224,32 @@ class BuyController extends CoreController
             return redirect()->to(base_url('buy/' . $buy . '/manage'));
         }
 
-        if ($thisMaterial->stocks != $quantity_before) {
-            $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Bahan tidak dapat diubah <br> karena sudah digunakan.");
-            return redirect()->to(base_url('buy/' . $buy . '/manage'));
+        if($quantity < $thisItem->quantity){
+            $diffQuantity = $thisItem->quantity - $quantity;
+
+            if(($thisMaterial->stocks - $diffQuantity) <= 0){
+                $this->session->setFlashdata("msg_type", "error");
+                $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Item tidak dapat diubah <br> karena sangat mempengaruhi persediaan.");
+                return redirect()->to(base_url('buy/' . $buy . '/manage'));
+            }
+        }
+        
+        if($quantity < $thisItem->quantity){
+            $materialStocks = $thisMaterial->stocks - ($thisItem->quantity - $quantity);
+        }elseif($quantity > $thisItem->quantity){
+            $materialStocks = $thisMaterial->stocks + ($quantity - $thisItem->quantity);
+        }elseif($quantity == $thisItem->quantity){
+            $materialStocks = $thisMaterial->stocks;
         }
 
         $this->buyItemModel->where("id", $buyItemId)->set([
             "quantity"                  => $quantity,
-            "quantity_before"           => $thisMaterial->stocks + $newStock,
             "price"                     => $price,
             "discount"                  => $discount,
-        ])->update();
+        ])->update();        
 
         $this->materialModel->where("id", $material)->set([
-            "stocks"        => ($thisMaterial->stocks + $newStock)
+            "stocks"        => $materialStocks
         ])->update();
 
         $this->session->setFlashdata("msg_type", "success");
@@ -255,15 +259,15 @@ class BuyController extends CoreController
 
     public function buy_item_delete($buyId, $itemId)
     {
-        $thisMaterial = $this->buyItemModel
-            ->join('materials', 'buy_items.material_id = materials.id')
-            ->select([
-                'materials.id as material_id',
-                'materials.stocks',
-                'buy_items.quantity_before',
-                'buy_items.quantity',
-            ])
-            ->first();
+        $thisItem = $this->buyItemModel->where("id", $itemId)->first();        
+
+        if ($thisItem == NULL) {
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Item tidak ditemukan.");
+            return redirect()->to(base_url('buy/' . $buyId . '/manage'));
+        }
+
+        $thisMaterial = $this->materialModel->where("id", $thisItem->material_id)->first();
 
         if ($thisMaterial == NULL) {
             $this->session->setFlashdata("msg_type", "error");
@@ -271,17 +275,19 @@ class BuyController extends CoreController
             return redirect()->to(base_url('buy/' . $buyId . '/manage'));
         }
 
-        if ($thisMaterial->stocks != $thisMaterial->quantity_before) {
+        $materialStocks = $thisMaterial->stocks - $thisItem->quantity;
+
+        if ($materialStocks <= 0) {
             $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Bahan tidak dapat diubah <br> karena sudah digunakan.");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Item tidak dapat dihapus <br> karena sangat mempengaruhi persediaan.");
             return redirect()->to(base_url('buy/' . $buyId . '/manage'));
         }
 
-        $this->materialModel->where("id", $thisMaterial->material_id)->set([
-            "stocks"        => ($thisMaterial->stocks - $thisMaterial->quantity)
-        ])->update();
-
         $this->buyItemModel->where("id", $itemId)->delete();
+
+        $this->materialModel->where("id", $thisItem->material_id)->set([
+            "stocks"        => $materialStocks
+        ])->update();        
 
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item pembelian berhasil dihapus.");

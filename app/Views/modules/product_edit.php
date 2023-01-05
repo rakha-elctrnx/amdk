@@ -120,7 +120,7 @@ Edit Produk
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-block rounded-pill">
                                     <i class='fa fa-save'></i>
-                                    Ubah Product
+                                    Simpan Produk
                                 </button>
                                 <br>
                                 <a href="<?= base_url('product') ?>" class='btn btn-block btn-info rounded-pill'>

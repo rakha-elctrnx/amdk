@@ -49,8 +49,8 @@ Pembelian Bahan (Baku/Produksi)
                             ?>
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
-                                <td class='text-right'><?= $buy->number ?></td>
-                                <td class='text-right'><?= $buy->invoice_reference ?></td>
+                                <td class='text-center'><?= $buy->number ?></td>
+                                <td class='text-center'><?= $buy->invoice_reference ?></td>
                                 <td>
                                     <?php
                                     $supplier = $db->table("suppliers");

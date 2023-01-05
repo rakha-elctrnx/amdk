@@ -12,6 +12,7 @@ class Master extends Seeder
         $this->call('Administrator');
         $this->call('Customer');
         $this->call('Material');
+        $this->call('Product');
         $this->call('Supplier');
         $this->call('Transaction');
     }

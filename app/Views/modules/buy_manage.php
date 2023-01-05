@@ -137,8 +137,6 @@ Kelola Pembelian
                                     <td class='text-center'>
                                         <input type="hidden" name="buy" value="<?= $buy->id ?>">
                                         <input type="hidden" name="id" value="<?= $item->id ?>">
-                                        <input type="hidden" name="quantity_before" value="<?= $item->quantity_before ?>">
-                                        <input type="hidden" name="quantity_old" value="<?= $item->quantity ?>">
                                         <input type="hidden" name="material" value="<?= $item->material_id ?>">
                                         <input type="text" name="material_name" class="form-control" value="<?= $item->snapshot_material_name ?>" readonly>
                                     </td>
@@ -152,7 +150,7 @@ Kelola Pembelian
                                     </td>
                                     <td class='text-center'>
                                         <div class="input-group">
-                                            <input type="number" class="form-control text-right" name='quantity' value="<?= $item->quantity ?>" placeholder="Kuantitas" min="0" required>
+                                            <input type="number" class="form-control text-right" name='quantity' value="<?= $item->quantity ?>" placeholder="Kuantitas" min="1" required>
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><?= $item->snapshot_material_unit ?></span>
                                             </div>

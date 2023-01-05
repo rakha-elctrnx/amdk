@@ -63,6 +63,10 @@ class Productions extends Migration
                 "type" => "DOUBLE",
                 "null" => true,
             ],
+            "notes" => [
+                "type" => "LONGTEXT",
+                "null"=>true,
+            ],
         ]);
 
         $this->forge->addKey("id", TRUE);

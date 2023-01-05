@@ -32,7 +32,7 @@ Buat Produksi
                                     <?php
                                     foreach ($products as $product) {
                                     ?>
-                                        <option value="<?= $product->id ?>"><?= $product->name ?> (Satuan Default : <?= $product->unit; ?>)</option>
+                                        <option value="<?= $product->id ?>"><?= $product->name ?></option>
                                     <?php
                                     }
                                     ?>
@@ -44,14 +44,14 @@ Buat Produksi
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Tanggal Produksi</label>
+                                <label>Tanggal Mulai Produksi</label>
                                 <input type="date" name='production_date' value="<?= date('Y-m-d'); ?>" class='form-control' required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Estimasi Produksi</label>
-                                <input type="date" name='estimation_date' class='form-control' required>
+                                <label>Estimasi Selesai Produksi</label>
+                                <input type="date" name='estimation_date' value="<?= date('Y-m-d',strtotime("+ 1 days")); ?>" class='form-control' required>
                             </div>
                         </div>
                     </div>
@@ -61,17 +61,13 @@ Buat Produksi
                                 <label>Target</label>
                                 <input type="number" name='targets' class='form-control' placeholder="Target jumlah Produksi" required>
                             </div>
-                        </div>
-                        <div class="col-md-4">
+                        </div>                        
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label>Produksi Berhasil</label>
-                                <input type="number" name='achieveds' class='form-control' placeholder="Total Produksi Yang Berhasil" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Produksi Gagal</label>
-                                <input type="number" name='faileds' class='form-control' placeholder="Total Produksi Yang Gagal" required>
+                                <label>Catatan</label>
+                                <textarea class="form-control" name="notes" placeholder="Catatan"></textarea>
                             </div>
                         </div>
                     </div>
@@ -80,12 +76,12 @@ Buat Produksi
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block rounded-pill">
                                     <i class='fa fa-plus'></i>
-                                    Buat pembelian
+                                    Buat produksi
                                 </button>
                                 <br>
-                                <a href="<?= base_url('buy') ?>" class='btn btn-block btn-info rounded-pill'>
+                                <a href="<?= base_url('production') ?>" class='btn btn-block btn-info rounded-pill'>
                                     <i class='fa fa-arrow-left'></i>
-                                    Kembali ke data pembelian
+                                    Kembali ke data produksi
                                 </a>
                             </div>
                         </div>

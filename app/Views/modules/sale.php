@@ -37,7 +37,6 @@ Penjualan Produk
                             <th class='text-center'>No.Penjualan</th>
                             <th class='text-center'>Pelanggan</th>
                             <th class='text-center'>Tanggal</th>
-                            <th class='text-center'>Dibayar</th>
                             <th class='text-center'></th>
                         </tr>
                     </thead>
@@ -49,7 +48,7 @@ Penjualan Produk
                         ?>
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
-                                <td class='text-right'><?= $sale->number ?></td>
+                                <td class='text-center'><?= $sale->number ?></td>
                                 <td>
                                     <?php
                                     $customer = $db->table("customers");
@@ -61,7 +60,6 @@ Penjualan Produk
                                     ?>
                                 </td>
                                 <td class='text-right'><?= date("d-m-Y", strtotime($sale->date)) ?></td>
-                                <td class='text-right'>Rp. <?= number_format($sale->paid, 0, ",", ".") ?></td>
                                 <td class='text-center'>
                                     <a href="<?= base_url('sale/' . $sale->id . '/manage') ?>" class='btn btn-xs btn-success rounded-pill' title="Kelola">
                                         <i class='fa fa-cog'></i>

@@ -1,7 +1,7 @@
 <?= $this->extend("template") ?>
 
 <?= $this->section("tab_title") ?>
-Pembelian Produksi
+Produksi
 <?= $this->endSection() ?>
 
 <?= $this->section("title") ?>
@@ -36,9 +36,9 @@ Produksi
                             <th class='text-center'>No</th>
                             <th class='text-center'>No. Produksi</th>
                             <th class='text-center'>Produk</th>
-                            <th class='text-center'>Target</th>
                             <th class='text-center'>Tanggal Produksi</th>
-                            <th class='text-center'>Estimasi Produksi</th>
+                            <th class='text-center'>Target</th>
+                            <th class='text-center'>Hasil</th>
                             <th class='text-center'></th>
                         </tr>
                     </thead>
@@ -50,11 +50,11 @@ Produksi
                         ?>
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
-                                <td class='text-right'><?= $production->number ?></td>
+                                <td class='text-center'><?= $production->number ?></td>
                                 <td class='text-center'><?= $production->snapshot_product_name ?></td>
-                                <td class='text-right'><?= $production->targets ?></td>
                                 <td class='text-right'><?= date("d-m-Y", strtotime($production->production_date)) ?></td>
-                                <td class='text-right'><?= date("d-m-Y", strtotime($production->estimation_date)) ?></td>
+                                <td class='text-right'><?= $production->targets ?></td>
+                                <td class='text-right'><?= $production->achieveds ?></td>
                                 <td class='text-center'>
                                     <a href="<?= base_url('production/' . $production->id . '/manage') ?>" class='btn btn-xs btn-success rounded-pill' title="Kelola">
                                         <i class='fa fa-cog'></i>

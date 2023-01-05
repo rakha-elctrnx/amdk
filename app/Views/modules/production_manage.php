@@ -10,8 +10,8 @@ Kelola Produksi
 
 <?= $this->section("breadcrumb") ?>
 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-<li class="breadcrumb-item"><a href="<?= base_url('buy') ?>">Produksi</a></li>
-<li class="breadcrumb-item active">Kelola</li>
+<li class="breadcrumb-item"><a href="<?= base_url('production') ?>">Produksi</a></li>
+<li class="breadcrumb-item active"><?= $production->number ?></li>
 <?= $this->endSection() ?>
 
 <?= $this->section("content") ?>
@@ -19,7 +19,7 @@ Kelola Produksi
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Kelola Data Produksi</h3>
+                <h3 class="card-title">Kelola Data Produksi (<?= $production->number ?>)</h3>
             </div>
             <div class="card-body">
                 <form action="<?= base_url("production/edit") ?>" method="post">
@@ -34,10 +34,10 @@ Kelola Produksi
                                 <select class="form-control" name="product" <?= ($production->finish_date != NULL) ? 'disabled' : '' ?>>
                                     <?php if (!$production->finish_date != NULL) : ?>
                                         <?php foreach ($products as $product) : ?>
-                                            <option value="<?= $product->id ?>" <?= ($product->id == $production->product_id) ? 'selected' : '' ?>><?= $product->name ?> (Satuan Default : <?= $product->unit; ?>)</option>
+                                            <option value="<?= $product->id ?>" <?= ($product->id == $production->product_id) ? 'selected' : '' ?>><?= $product->name ?></option>
                                         <?php endforeach; ?>
                                     <?php else : ?>
-                                        <option value="<?= $production->id ?>"><?= $production->snapshot_product_name ?> (Satuan Default : <?= $production->snapshot_product_unit; ?>)</option>
+                                        <option value="<?= $production->id ?>"><?= $production->snapshot_product_name ?></option>
                                     <?php endif; ?>
                                 </select>
                             </div>
@@ -47,21 +47,32 @@ Kelola Produksi
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Target</label>
-                                <input type="number" name='targets' value='<?= $production->targets  ?>' class='form-control' placeholder="Target jumlah Produksi" required>
+                                <input type="number" name='targets' value='<?= $production->targets  ?>' class='form-control' placeholder="Target jumlah Produksi" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Tanggal Produksi</label>
-                                <input type="date" name='production_date' value='<?= $production->production_date  ?>' class='form-control' required>
+                                <label>Tanggal Mulai Produksi</label>
+                                <input type="date" name='production_date' value='<?= $production->production_date  ?>' class='form-control' required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Estimasi Produksi</label>
-                                <input type="date" value='<?= $production->estimation_date  ?>' name='estimation_date' class='form-control' required>
+                                <label>Estimasi Selesai Produksi</label>
+                                <input type="date" value='<?= $production->estimation_date  ?>' name='estimation_date' class='form-control' required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                             </div>
                         </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Catatan</label>
+                                <textarea class="form-control" name="notes" placeholder="Catatan"><?= ($production->notes != NULL) ? nl2br($production->notes) : "" ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning">
+                        Isi kolom di bawah ini hanya ketika produksi selesai.
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-4">
@@ -72,21 +83,21 @@ Kelola Produksi
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Produksi Berhasil</label>
-                                <input type="number" name='achieveds' class='form-control' value='<?= $production->achieveds ?>' required min="0" placeholder="Total Produksi Yang Berhasil">
+                                <label>Jumlah Produksi Berhasil</label>
+                                <input type="number" name='achieveds' class='form-control' value='<?= $production->achieveds ?>' placeholder="Total Produksi Yang Berhasil" <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Produksi Gagal</label>
-                                <input type="number" name='faileds' value='<?= $production->faileds ?>' class='form-control' min="0" required placeholder="Total Produksi Yang Gagal">
+                                <label>Jumlah Produksi Gagal</label>
+                                <input type="number" name='faileds' value='<?= $production->faileds ?>' class='form-control' placeholder="Total Produksi Yang Gagal" <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <button type="submit" onclick="return confirm('Apakah anda yakin.?')" class="btn btn-success btn-block rounded-pill">
+                                <button type="submit" class="btn btn-success btn-block rounded-pill">
                                     <i class='fa fa-save'></i>
                                     Simpan Produksi
                                 </button>
@@ -182,7 +193,7 @@ Kelola Produksi
                                                                 <input type="hidden" name="ingredient_id" value="<?= $ingredient->id ?>">
                                                                 <input type="hidden" name="material_id" value="<?= $ingredient->material_id ?>">
 
-                                                                <input type="text" name="material_name" class="form-control" value="<?= $ingredient->snapshot_material_name ?> (Satuan Default : <?= $ingredient->snapshot_material_unit; ?>)" readonly>
+                                                                <input type="text" name="material_name" class="form-control" value="<?= $ingredient->snapshot_material_name ?>" readonly>
                                                             </td>
                                                             <td class='text-center'>
                                                                 <div class="input-group">
@@ -194,7 +205,10 @@ Kelola Produksi
                                                             </td>
                                                             <td class='text-center'>
                                                                 <div class="input-group">
-                                                                    <input type="number" class="form-control text-right" name='quantity' value="<?= $ingredient->quantity ?>" placeholder="Kuantitas" min="1" required>
+                                                                    <input type="number" class="form-control text-right" name='quantity' value="<?= $ingredient->quantity ?>" placeholder="Kuantitas" min="1" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><?= $ingredient->snapshot_material_unit ?></span>
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                             <td class='text-right' width="15%">
@@ -221,7 +235,7 @@ Kelola Produksi
                                                     <form action="<?= base_url("production/ingredient/add") ?>" method="post">
                                                         <td class='text-center'>
                                                             <input type="hidden" name="production_id" value="<?= $production->id ?>">
-                                                            <select name="material" class='form-control' id="materialSelect" required>
+                                                            <select name="material" class='form-control' id="materialSelect" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                                 <option value="">--Pilih Bahan--</option>
                                                                 <?php
                                                                 foreach ($materials as $material) {
@@ -233,7 +247,7 @@ Kelola Produksi
 
                                                                     if ($exist == NULL) :
                                                                 ?>
-                                                                        <option value="<?= $material->id ?>"><?= $material->name ?> (Satuan : <?= $material->unit; ?>)</option>
+                                                                        <option value="<?= $material->id ?>"><?= $material->name ?></option>
                                                                 <?php
                                                                     endif;
                                                                 }
@@ -249,7 +263,7 @@ Kelola Produksi
                                                             </div>
                                                         </td>
                                                         <td class='text-center'>
-                                                            <input type="number" class="form-control text-right" name='quantity' placeholder="Kuantitas" min="1" required>
+                                                            <input type="number" class="form-control text-right" name='quantity' placeholder="Kuantitas" min="1" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                         </td>
                                                         <td class='text-right'>
                                                         </td>
@@ -293,20 +307,20 @@ Kelola Produksi
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Data Bahan Yang Dipakai</h3>
+                                        <h3 class="card-title">Data Biaya Yang Dikeluarkan</h3>
                                     </div>
                                     <div class="card-body" id="container-buy-items">
                                         <table class="table table-striped table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">Harga</th>
+                                                    <th class="text-center">Biaya</th>
                                                     <th class="text-center">Tanggal</th>
-                                                    <th class="text-center">Detail</th>
+                                                    <th class="text-center">Keterangan</th>
                                                     <th class="text-center"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php if ($cost) : ?>
+                                                <?php foreach($costs as $cost) : ?>
                                                     <tr>
                                                         <form action="<?= base_url("production/cost/edit") ?>" method="post">
                                                             <td class='text-center'>
@@ -316,18 +330,14 @@ Kelola Produksi
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Rp.</span>
                                                                     </div>
-                                                                    <input type="number" class="form-control text-right" name='price' value="<?= $cost->price ?>" placeholder="Harga" required>
+                                                                    <input type="number" class="form-control text-right" name='price' value="<?= $cost->price ?>" placeholder="Harga" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                                 </div>
                                                             </td>
                                                             <td class='text-center'>
-                                                                <div class="input-group">
-                                                                    <input type="date" class="form-control text-right" name='date' value="<?= $cost->date ?>" placeholder="Tanggal" required>
-                                                                </div>
+                                                                <input type="date" class="form-control text-right" name='date' value="<?= $cost->date ?>" placeholder="Tanggal" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center'>
-                                                                <div class="input-group">
-                                                                    <textarea name="details" class="form-control" placeholder="Catatan / Keterangan" required><?= nl2br($cost->details) ?></textarea>
-                                                                </div>
+                                                                <input type="text" class="form-control text-right" name='details' value="<?= $cost->details ?>" placeholder="Keterangan" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center' width="15%">
                                                                 <button type="submit" class="btn btn-success" title="Simpan">
@@ -339,7 +349,7 @@ Kelola Produksi
                                                             </td>
                                                         </form>
                                                     </tr>
-                                                <?php else : ?>
+                                                <?php endforeach; ?>
                                                     <tr>
                                                         <form action="<?= base_url("production/cost/add") ?>" method="post">
                                                             <td class='text-center'>
@@ -348,18 +358,14 @@ Kelola Produksi
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">Rp.</span>
                                                                     </div>
-                                                                    <input type="number" class="form-control text-right" name='price' placeholder="Harga" required>
+                                                                    <input type="number" class="form-control text-right" name='price' placeholder="Harga" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                                 </div>
                                                             </td>
                                                             <td class='text-center'>
-                                                                <div class="input-group">
-                                                                    <input type="date" class="form-control text-right" name='date' placeholder="Tanggal" required>
-                                                                </div>
+                                                                <input type="date" class="form-control text-right" name='date' placeholder="Tanggal" value="<?= date("Y-m-d") ?>" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center'>
-                                                                <div class="input-group">
-                                                                    <textarea name="details" class="form-control" placeholder="Catatan / Keterangan" required></textarea>
-                                                                </div>
+                                                            <input type="text" class="form-control text-right" name='details' placeholder="Keterangan" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center'>
                                                                 <button type="submit" class="btn btn-primary" title="Tambah">
@@ -368,7 +374,6 @@ Kelola Produksi
                                                             </td>
                                                         </form>
                                                     </tr>
-                                                <?php endif; ?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -34,7 +34,8 @@ class Sales extends Migration
                 "type"=>"DATE"
             ],
             "paid" => [
-                "type"=> "DOUBLE"
+                "type"=> "DOUBLE",
+                "null"=> true,
             ],
             "notes" => [
                 "type" => "LONGTEXT",

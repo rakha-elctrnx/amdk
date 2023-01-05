@@ -31,11 +31,9 @@ class ProductionController extends CoreController
     {
         $product = $this->request->getPost('product');
         $targets = $this->request->getPost('targets');
-        $achieveds = $this->request->getPost('achieveds');
-        $faileds = $this->request->getPost('faileds');
         $production_date = $this->request->getPost('production_date');
         $estimation_date = $this->request->getPost('estimation_date');
-        $finish_date = $this->request->getPost('finish_date');
+        $notes = $this->request->getPost('notes');
         $productData = $this->productModel->where('id', $product)->first();
         $this->ProductionModel->insert([
             'product_id' => $product,
@@ -44,18 +42,9 @@ class ProductionController extends CoreController
             'snapshot_product_unit' => $productData->unit,
             'snapshot_product_price' => $productData->price,
             'targets' => $targets,
-            'achieveds' => $achieveds,
-            'faileds' => $faileds,
             'production_date' => $production_date,
-            'estimation_date' => $estimation_date,
-            'finish_date' => null,
+            'notes' => $notes,
         ]);
-
-        if ($finish_date != NULL && $achieveds != NULL) {
-            $this->productModel->where('id', $product)->set([
-                'stocks' => $productData->stocks + $achieveds,
-            ])->update();
-        }
 
         $newID = $this->ProductionModel->getInsertID();
 
@@ -87,8 +76,15 @@ class ProductionController extends CoreController
         $production_date = $this->request->getPost('production_date');
         $estimation_date = $this->request->getPost('estimation_date');
         $finish_date = $this->request->getPost('finish_date');
+        $notes = $this->request->getPost('notes');
 
         $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
+
+        if($thisProduction->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dimodifikasi.");
+            return redirect()->to(base_url('production/' . $production_id . '/manage'));
+        }
 
         if ($product_id == null) {
             $newID = $product;
@@ -110,25 +106,17 @@ class ProductionController extends CoreController
             $name = $productData->name;
             $unit = $productData->unit;
             $price = $productData->price;
-        }
-
-        if ($thisProduction->finish_date == null) {
-            $newStock = $productData->stocks + $achieveds;
-        } else {
-            $newStock = $productData->stocks - ($thisProduction->achieveds - $achieveds);
-        }
+        }        
 
         if ($finish_date == null) {
             $finish_date = null;
+            $achieveds = NULL;
+            $faileds = NULL;
         }
 
-        if ($newStock <= 0) {
-            $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produk Sudah Digunakan!");
-            return redirect()->to(base_url('production/' . $production_id . '/manage'));
-        }
+        if ($finish_date != NULL) {
+            $newStock = $productData->stocks + $achieveds;
 
-        if ($finish_date != NULL && $achieveds != NULL) {
             $this->productModel->where('id', $newID)->set([
                 'stocks' => $newStock,
             ])->update();
@@ -146,6 +134,7 @@ class ProductionController extends CoreController
             'production_date' => $production_date,
             'estimation_date' => $estimation_date,
             'finish_date' => $finish_date,
+            "notes"=>$notes,
         ])->update();
 
         $this->session->setFlashdata("msg_type", "success");
@@ -155,8 +144,8 @@ class ProductionController extends CoreController
 
     public function production_manage($production_id)
     {
-        $productionData = $this->ProductionModel->where(['admin_id' => $this->session->admin_id, 'id' => $production_id])->first();
-        $cost = $this->costModel->where(['production_id' => $production_id])->first();
+        $productionData = $this->ProductionModel->where(['id' => $production_id])->first();
+        $costs = $this->costModel->where(['production_id' => $production_id])->findAll();
         $materials = $this->materialModel->findAll();
         $products = $this->productModel->findAll();
         $ingredients = $this->ingredientModel
@@ -165,7 +154,7 @@ class ProductionController extends CoreController
         $data = [
             'production' => $productionData,
             'products' => $products,
-            'cost' => $cost,
+            'costs' => $costs,
             'materials' => $materials,
             'session' => $this->session,
             'ingredients' => $ingredients,
@@ -189,20 +178,21 @@ class ProductionController extends CoreController
 
         $productData = $this->productModel->where('id', $producitonData->product_id)->first();
 
+        if($producitonData->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dihapus.");
+            return redirect()->to(base_url('production/' . $produciton_id . '/manage'));
+        }
+
         if ($productData->stocks < $producitonData->achieveds) {
             $this->session->setFlashdata("msg_type", "error");
             $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi sudah digunakan.");
             return redirect()->to(base_url('production/' . $produciton_id . '/manage'));
         }
 
-        if ($ingredientData) {
+        if ($ingredientData != NULL  || $costData != NULL) {
             $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi tidak dapat dihapus <br> karena bahan sudah ditambahkan.");
-            return redirect()->to(base_url('production/' . $produciton_id . '/manage'));
-        }
-        if ($costData) {
-            $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi tidak dapat dihapus <br> karena biaya sudah ditambahkan.");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi tidak dapat dihapus <br> karena data tidak kosong.");
             return redirect()->to(base_url('production/' . $produciton_id . '/manage'));
         }
 
@@ -222,6 +212,14 @@ class ProductionController extends CoreController
         $production_id = $this->request->getPost('production_id');
         $material = $this->request->getPost('material');
         $quantity = $this->request->getPost('quantity');
+
+        $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
+
+        if($thisProduction->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dimodifikasi.");
+            return redirect()->to(base_url('production/' . $production_id . '/manage'));
+        }
 
         $thisMaterial = $this->materialModel->where("id", $material)->first();
 
@@ -256,6 +254,14 @@ class ProductionController extends CoreController
         $material_id = $this->request->getPost('material_id');
         $quantity = $this->request->getPost('quantity');
 
+        $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
+
+        if($thisProduction->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dimodifikasi.");
+            return redirect()->to(base_url('production/' . $production_id . '/manage'));
+        }
+
         $thisIngredient = $this->ingredientModel->where('id', $ingredient_id)->first();
         $thisMaterial = $this->materialModel->where('id', $material_id)->first();
 
@@ -283,6 +289,13 @@ class ProductionController extends CoreController
     public function ingredient_delete($production_id, $ingredient_id)
     {
         $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
+
+        if($thisProduction->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dimodifikasi.");
+            return redirect()->to(base_url('production/' . $production_id . '/manage'));
+        }
+        $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
         $thisIngredient = $this->ingredientModel->where('id', $ingredient_id)->first();
         if (!$thisIngredient || !$thisProduction) {
             $this->session->setFlashdata("msg_type", "error");
@@ -309,6 +322,15 @@ class ProductionController extends CoreController
         $date = $this->request->getPost('date');
         $details = $this->request->getPost('details');
 
+        $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
+
+        if($thisProduction->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dimodifikasi.");
+            $this->session->setFlashdata("active", "biaya");
+            return redirect()->to(base_url('production/' . $production_id . '/manage'));
+        }
+
         $this->costModel->insert([
             'production_id' => $production_id,
             'price' => $price,
@@ -330,6 +352,15 @@ class ProductionController extends CoreController
         $date = $this->request->getPost('date');
         $details = $this->request->getPost('details');
 
+        $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
+
+        if($thisProduction->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dimodifikasi.");
+            $this->session->setFlashdata("active", "biaya");
+            return redirect()->to(base_url('production/' . $production_id . '/manage'));
+        }
+
         $this->costModel->where('id', $cost_id)->set([
             'production_id' => $production_id,
             'price' => $price,
@@ -345,11 +376,20 @@ class ProductionController extends CoreController
 
     public function cost_delete($production_id, $cost_id)
     {
+        $thisProduction = $this->ProductionModel->where('id', $production_id)->first();
+
+        if($thisProduction->finish_date != NULL){
+            $this->session->setFlashdata("msg_type", "error");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Produksi yang sudah diselesaikan tidak dapat dimodifikasi.");
+            $this->session->setFlashdata("active", "biaya");
+            return redirect()->to(base_url('production/' . $production_id . '/manage'));
+        }
         $thisCost = $this->costModel->where('id', $cost_id)->first();
 
         if ($thisCost == NULL) {
             $this->session->setFlashdata("msg_type", "error");
             $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Biaya tidak ditemukan.");
+            $this->session->setFlashdata("active", "biaya");
             return redirect()->to(base_url('production/' . $production_id . '/manage'));
         }
 

@@ -50,7 +50,7 @@ Buat Pembelian
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Tanggal Pembelian</label>
-                                <input type="date" name='date' class='form-control' required>
+                                <input type="date" name='date' class='form-control' value="<?= date("Y-m-d") ?>" required>
                             </div>
                         </div>
                     </div>

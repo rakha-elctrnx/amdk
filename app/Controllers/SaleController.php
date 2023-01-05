@@ -37,7 +37,6 @@ class SaleController extends CoreController
     {
         $customer = $this->request->getPost("customer");
         $date = $this->request->getPost("date");
-        $paid = $this->request->getPost("paid");
         $notes = $this->request->getPost("notes");
 
         $this->saleModel->insert([
@@ -45,7 +44,6 @@ class SaleController extends CoreController
             "admin_id"          => $this->session->admin_id,
             "customer_id"       => $customer,
             "date"              => $date,
-            "paid"              => $paid,
             "notes"             => $notes,
         ]);
 
@@ -72,13 +70,11 @@ class SaleController extends CoreController
     {
         $sale_id = $this->request->getPost("sale_id");
         $customer_id = $this->request->getPost("customer_id");
-        $paid = $this->request->getPost("paid");
         $date = $this->request->getPost("date");
         $notes = $this->request->getPost("notes");
 
         $this->saleModel->where("id", $sale_id)->set([
             "customer_id"       => $customer_id,
-            "paid"              => $paid,
             "date"              => $date,
             "notes"             => $notes,
         ])->update();
@@ -114,7 +110,7 @@ class SaleController extends CoreController
 
     public function sale_manage($id)
     {
-        $sale = $this->saleModel->where("id", $id)->where("admin_id", $this->session->admin_id)->first();
+        $sale = $this->saleModel->where("id", $id)->first();
 
         if ($sale == NULL) {
             $this->session->setFlashdata("msg_type", "error");

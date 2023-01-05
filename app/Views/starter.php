@@ -1,11 +1,15 @@
 <?= $this->extend("template") ?>
 
+<?= $this->section("tab_title") ?>
+Starter
+<?= $this->endSection() ?>
+
 <?= $this->section("title") ?>
 Starter
 <?= $this->endSection() ?>
 
 <?= $this->section("breadcrumb") ?>
-<li class="breadcrumb-item"><a href="">Home</a></li>
+<li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
 <li class="breadcrumb-item active">Starter Page</li>
 <?= $this->endSection() ?>
 

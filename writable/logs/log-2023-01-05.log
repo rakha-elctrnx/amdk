@@ -1,0 +1,296 @@
+CRITICAL - 2023-01-05 07:04:17 --> Unsupported operand types: string + string
+in APPPATH\Controllers\ProductionController.php on line 110.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_edit_process()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 07:07:57 --> Undefined variable $newStock
+in APPPATH\Controllers\ProductionController.php on line 113.
+ 1 APPPATH\Controllers\ProductionController.php(113): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newStock', 'APPPATH\\Controllers\\ProductionController.php', 113)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_edit_process()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 07:12:02 --> Undefined constant "CodeIgniter\Debug\VENDORPATH"
+in SYSTEMPATH\Debug\Exceptions.php on line 177.
+ 1 SYSTEMPATH\Debug\Exceptions.php(157): CodeIgniter\Debug\Exceptions->isFakerDeprecationError(8192, 'nl2br(): Passing null to parameter #1 ($string) of type string is deprecated', 'APPPATH\\Views\\modules\\production_manage.php', 69)
+ 2 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'nl2br(): Passing null to parameter #1 ($string) of type string is deprecated', 'APPPATH\\Views\\modules\\production_manage.php', 69)
+ 3 APPPATH\Views\modules\production_manage.php(69): nl2br(null)
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_manage.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 7 APPPATH\Controllers\ProductionController.php(160): view('modules/production_manage', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('2')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 07:12:32 --> syntax error, unexpected integer "1"
+in APPPATH\Views\modules\production_manage.php on line 69.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_manage', [], true)
+ 3 APPPATH\Controllers\ProductionController.php(160): view('modules/production_manage', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_manage('2')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 07:15:53 --> Undefined variable $production
+in APPPATH\Views\modules\production_add.php on line 70.
+ 1 APPPATH\Views\modules\production_add.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $production', 'APPPATH\\Views\\modules\\production_add.php', 70)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\production_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/production_add', [], true)
+ 5 APPPATH\Controllers\ProductionController.php(27): view('modules/production_add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ProductionController->production_add()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductionController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 07:21:17 --> mysqli_sql_exception: Unknown column 'buys.reference' in 'field list' in D:\Projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `buys`.`...', 0)
+#1 D:\Projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buys`.`...')
+#2 D:\Projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buys`.`...')
+#3 D:\Projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `buys`.`...', Array, false)
+#4 D:\Projects\amdk\app\Controllers\ReportController.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Projects\amdk\system\CodeIgniter.php(927): App\Controllers\ReportController->report_buy_print()
+#6 D:\Projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+#7 D:\Projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\amdk\system\Commands\Server\rewrite.php(46): require_once('D:\\Projects\\amd...')
+#10 {main}
+CRITICAL - 2023-01-05 07:21:17 --> Unknown column 'buys.reference' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `buys`.`number` as `buy_number`, `buys`.`reference` as `buy_reference`, `buys`.`date` as `buy_date`, `suppliers`.`name` as `supplier_name`, `buy_items`.`snapshot_material_name` as `material_name`, `buy_items`.`snapshot_material_unit` as `material_unit`, `buy_items`.`price` as `item_price`, `buy_items`.`quantity` as `item_quantity`, `buy_items`.`discount` as `item_discount`
+FROM `buy_items`
+LEFT JOIN `buys` ON `buy_items`.`buy_id`=`buys`.`id`
+LEFT JOIN `suppliers` ON `buys`.`supplier_id`=`suppliers`.`id`
+WHERE `date` >= \'2023-1-01\'
+AND `date` <= \'2023-1-31\'
+AND `buys`.`admin_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buys`.`number` as `buy_number`, `buys`.`reference` as `buy_reference`, `buys`.`date` as `buy_date`, `suppliers`.`name` as `supplier_name`, `buy_items`.`snapshot_material_name` as `material_name`, `buy_items`.`snapshot_material_unit` as `material_unit`, `buy_items`.`price` as `item_price`, `buy_items`.`quantity` as `item_quantity`, `buy_items`.`discount` as `item_discount`
+FROM `buy_items`
+LEFT JOIN `buys` ON `buy_items`.`buy_id`=`buys`.`id`
+LEFT JOIN `suppliers` ON `buys`.`supplier_id`=`suppliers`.`id`
+WHERE `date` >= \'2023-1-01\'
+AND `date` <= \'2023-1-31\'
+AND `buys`.`admin_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buys`.`number` as `buy_number`, `buys`.`reference` as `buy_reference`, `buys`.`date` as `buy_date`, `suppliers`.`name` as `supplier_name`, `buy_items`.`snapshot_material_name` as `material_name`, `buy_items`.`snapshot_material_unit` as `material_unit`, `buy_items`.`price` as `item_price`, `buy_items`.`quantity` as `item_quantity`, `buy_items`.`discount` as `item_discount`
+FROM `buy_items`
+LEFT JOIN `buys` ON `buy_items`.`buy_id`=`buys`.`id`
+LEFT JOIN `suppliers` ON `buys`.`supplier_id`=`suppliers`.`id`
+WHERE `date` >= \'2023-1-01\'
+AND `date` <= \'2023-1-31\'
+AND `buys`.`admin_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `buys`.`number` as `buy_number`, `buys`.`reference` as `buy_reference`, `buys`.`date` as `buy_date`, `suppliers`.`name` as `supplier_name`, `buy_items`.`snapshot_material_name` as `material_name`, `buy_items`.`snapshot_material_unit` as `material_unit`, `buy_items`.`price` as `item_price`, `buy_items`.`quantity` as `item_quantity`, `buy_items`.`discount` as `item_discount`
+FROM `buy_items`
+LEFT JOIN `buys` ON `buy_items`.`buy_id`=`buys`.`id`
+LEFT JOIN `suppliers` ON `buys`.`supplier_id`=`suppliers`.`id`
+WHERE `date` >= :date:
+AND `date` <= :date.1:
+AND `buys`.`admin_id` = :buys.admin_id:', [...], false)
+ 5 APPPATH\Controllers\ReportController.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_buy_print()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 07:23:52 --> Undefined property: stdClass::$price
+in APPPATH\Views\modules\report_buy_print.php on line 83.
+ 1 APPPATH\Views\modules\report_buy_print.php(83): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$price', 'APPPATH\\Views\\modules\\report_buy_print.php', 83)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\report_buy_print.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/report_buy_print', [], true)
+ 5 APPPATH\Controllers\ReportController.php(80): view('modules/report_buy_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_buy_print()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 07:27:04 --> syntax error, unexpected token "<"
+in APPPATH\Views\modules\report_buy_print.php on line 101.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/report_buy_print', [], true)
+ 3 APPPATH\Controllers\ReportController.php(80): view('modules/report_buy_print', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_buy_print()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 07:36:36 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '..`admin_id` = '1'' at line 7 in D:\Projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `sales`....', 0)
+#1 D:\Projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sales`....')
+#2 D:\Projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sales`....')
+#3 D:\Projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `sales`....', Array, false)
+#4 D:\Projects\amdk\app\Controllers\ReportController.php(128): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Projects\amdk\system\CodeIgniter.php(927): App\Controllers\ReportController->report_sale_print()
+#6 D:\Projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+#7 D:\Projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\amdk\system\Commands\Server\rewrite.php(46): require_once('D:\\Projects\\amd...')
+#10 {main}
+CRITICAL - 2023-01-05 07:36:36 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '..`admin_id` = '1'' at line 7
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `sales`.`number` as `sale_number`, `sales`.`date` as `sale_date`, `customers`.`name` as `customer_name`, `sale_items`.`snapshot_product_name` as `product_name`, `sale_items`.`snapshot_product_unit` as `product_unit`, `sale_items`.`price` as `item_price`, `sale_items`.`quantity` as `item_quantity`, `sale_items`.`discount` as `item_discount`
+FROM `sale_items`
+LEFT JOIN `sales` ON `sale_items`.`sale_id`=`sales`.`id`
+LEFT JOIN `customers` ON `sales`.`customer_id`=`customers`.`id`
+WHERE `sales`.`date` >= \'2022-01-01\'
+AND `sales`.`date` <= \'2022-12-31\'
+AND `sales`..`admin_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sales`.`number` as `sale_number`, `sales`.`date` as `sale_date`, `customers`.`name` as `customer_name`, `sale_items`.`snapshot_product_name` as `product_name`, `sale_items`.`snapshot_product_unit` as `product_unit`, `sale_items`.`price` as `item_price`, `sale_items`.`quantity` as `item_quantity`, `sale_items`.`discount` as `item_discount`
+FROM `sale_items`
+LEFT JOIN `sales` ON `sale_items`.`sale_id`=`sales`.`id`
+LEFT JOIN `customers` ON `sales`.`customer_id`=`customers`.`id`
+WHERE `sales`.`date` >= \'2022-01-01\'
+AND `sales`.`date` <= \'2022-12-31\'
+AND `sales`..`admin_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sales`.`number` as `sale_number`, `sales`.`date` as `sale_date`, `customers`.`name` as `customer_name`, `sale_items`.`snapshot_product_name` as `product_name`, `sale_items`.`snapshot_product_unit` as `product_unit`, `sale_items`.`price` as `item_price`, `sale_items`.`quantity` as `item_quantity`, `sale_items`.`discount` as `item_discount`
+FROM `sale_items`
+LEFT JOIN `sales` ON `sale_items`.`sale_id`=`sales`.`id`
+LEFT JOIN `customers` ON `sales`.`customer_id`=`customers`.`id`
+WHERE `sales`.`date` >= \'2022-01-01\'
+AND `sales`.`date` <= \'2022-12-31\'
+AND `sales`..`admin_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `sales`.`number` as `sale_number`, `sales`.`date` as `sale_date`, `customers`.`name` as `customer_name`, `sale_items`.`snapshot_product_name` as `product_name`, `sale_items`.`snapshot_product_unit` as `product_unit`, `sale_items`.`price` as `item_price`, `sale_items`.`quantity` as `item_quantity`, `sale_items`.`discount` as `item_discount`
+FROM `sale_items`
+LEFT JOIN `sales` ON `sale_items`.`sale_id`=`sales`.`id`
+LEFT JOIN `customers` ON `sales`.`customer_id`=`customers`.`id`
+WHERE `sales`.`date` >= :sales.date:
+AND `sales`.`date` <= :sales.date.1:
+AND `sales`..`admin_id` = :sales..admin_id:', [...], false)
+ 5 APPPATH\Controllers\ReportController.php(128): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_sale_print()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 20:35:57 --> Undefined property: stdClass::$production_name
+in APPPATH\Views\modules\report_use_print.php on line 76.
+ 1 APPPATH\Views\modules\report_use_print.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$production_name', 'APPPATH\\Views\\modules\\report_use_print.php', 76)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\report_use_print.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/report_use_print', [], true)
+ 5 APPPATH\Controllers\ReportController.php(303): view('modules/report_use_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_use_print()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 21:12:04 --> Undefined variable $rows
+in APPPATH\Controllers\ReportController.php on line 389.
+ 1 APPPATH\Controllers\ReportController.php(389): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rows', 'APPPATH\\Controllers\\ReportController.php', 389)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_summary_print()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 21:12:12 --> Undefined constant "App\Controllers\data"
+in APPPATH\Controllers\ReportController.php on line 391.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_summary_print()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 21:41:41 --> mysqli_sql_exception: Unknown column 'sale_items.sale_id' in 'on clause' in D:\Projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Projects\amdk\app\Controllers\ReportController.php(410): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Projects\amdk\system\CodeIgniter.php(927): App\Controllers\ReportController->report_summary_print()
+#6 D:\Projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+#7 D:\Projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\amdk\system\Commands\Server\rewrite.php(46): require_once('D:\\Projects\\amd...')
+#10 {main}
+CRITICAL - 2023-01-05 21:41:41 --> Unknown column 'sale_items.sale_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `buy_items`
+JOIN `buys` ON `sale_items`.`sale_id`=`sales`.`id`
+WHERE `date` >= \'2023-01-01\'
+AND `date` <= \'2023-12-31\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `buy_items`
+JOIN `buys` ON `sale_items`.`sale_id`=`sales`.`id`
+WHERE `date` >= \'2023-01-01\'
+AND `date` <= \'2023-12-31\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `buy_items`
+JOIN `buys` ON `sale_items`.`sale_id`=`sales`.`id`
+WHERE `date` >= \'2023-01-01\'
+AND `date` <= \'2023-12-31\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `buy_items`
+JOIN `buys` ON `sale_items`.`sale_id`=`sales`.`id`
+WHERE `date` >= :date:
+AND `date` <= :date.1:', [...], false)
+ 5 APPPATH\Controllers\ReportController.php(410): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_summary_print()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 21:47:11 --> mysqli_sql_exception: Unknown column 'date' in 'where clause' in D:\Projects\amdk\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Projects\amdk\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Projects\amdk\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Projects\amdk\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Projects\amdk\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Projects\amdk\app\Controllers\ReportController.php(431): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Projects\amdk\system\CodeIgniter.php(927): App\Controllers\ReportController->report_summary_print()
+#6 D:\Projects\amdk\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+#7 D:\Projects\amdk\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\amdk\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\amdk\system\Commands\Server\rewrite.php(46): require_once('D:\\Projects\\amd...')
+#10 {main}
+CRITICAL - 2023-01-05 21:47:11 --> Unknown column 'date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `productions`
+WHERE `date` >= \'2023-01-01\'
+AND `date` <= \'2023-12-31\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `productions`
+WHERE `date` >= \'2023-01-01\'
+AND `date` <= \'2023-12-31\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `productions`
+WHERE `date` >= \'2023-01-01\'
+AND `date` <= \'2023-12-31\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `productions`
+WHERE `date` >= :date:
+AND `date` <= :date.1:', [...], false)
+ 5 APPPATH\Controllers\ReportController.php(431): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ReportController->report_summary_print()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ReportController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 22:03:45 --> Undefined variable $sales
+in APPPATH\Views\modules\dashboard.php on line 77.
+ 1 APPPATH\Views\modules\dashboard.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sales', 'APPPATH\\Views\\modules\\dashboard.php', 77)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\modules\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('modules/dashboard', [], true)
+ 5 APPPATH\Controllers\DashboardController.php(23): view('modules/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 22:07:53 --> Undefined property: App\Controllers\DashboardController::$productionModel
+in APPPATH\Controllers\DashboardController.php on line 16.
+ 1 APPPATH\Controllers\DashboardController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DashboardController::$productionModel', 'APPPATH\\Controllers\\DashboardController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DashboardController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

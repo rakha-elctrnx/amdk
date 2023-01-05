@@ -33,7 +33,7 @@
         <tbody>
             <tr>
                 <td class='text-center'>
-                    <h2>INVOICE</h2>
+                    <h2>NOTA PENJUALAN</h2>
                 </td>
             </tr>
         </tbody>
@@ -41,16 +41,7 @@
     <br>
     <table class='table table-bordered'>
         <tbody>
-            <tr>
-                <td>
-                    <?= config("Custom")->companyAddress ?>
-                    <br>
-                    <?= config("Custom")->companyMail ?>
-                    <br>
-                    <?= config("Custom")->companyPhone ?>
-                    <br>
-                    <?= config("Custom")->companyMobile ?>
-                </td>
+            <tr>                
                 <td width="50%">
                     <!-- data customer -->
                     <?php
@@ -65,7 +56,7 @@
                     <?= $dCustomer->mobile ?>
                 </td>
                 <td class='text-center align-middle'>
-                    <b style='font-size:25'><?= $sale->number ?></b>
+                    <b style='font-size:25'>No. <?= $sale->number ?></b>
                     <br>
                     <?= date("d-m-Y", strtotime($sale->date)) ?>
                 </td>
@@ -127,11 +118,7 @@
             <tr>
                 <th style='text-align:right' colspan="4">Total</th>
                 <th style='text-align:right'>Rp. <?= number_format($grandTotal, 0, ",", ".") ?></th>
-            </tr>
-            <tr>
-                <th style='text-align:right' colspan="4">Dibayar</th>
-                <th style='text-align:right'>Rp. <?= number_format($sale->paid, 0, ",", ".") ?></th>
-            </tr>
+            </tr>            
         </tfoot>
     </table>
 
@@ -144,13 +131,13 @@
                     <?= nl2br($sale->notes) ?>
                 </td>
                 <td class='text-center'>
-                    <?= date("d-m-Y") ?>
+                    <?= config("Custom")->companyAreaLetter ?>, <?= date("d-m-Y") ?>
                     <br>
                     <br>
                     <br>
                     <br>
                     <br>
-                    <u>(..............................................)</u>
+                    <b><u><?= config("Login")->adminName ?></u></b>
                 </td>
             </tr>
         </tbody>

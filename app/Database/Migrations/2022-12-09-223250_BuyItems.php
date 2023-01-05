@@ -39,6 +39,7 @@ class BuyItems extends Migration
             ],
             "quantity_before" => [
                 "type" => "DOUBLE",
+                "null" => true,
             ],
             "price" => [
                 "type" => "DOUBLE",

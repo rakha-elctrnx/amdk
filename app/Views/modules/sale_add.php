@@ -43,12 +43,6 @@ Buat Penjualan
                     <div class="row mb-2">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Dibayar</label>
-                                <input type="number" name='paid' class='form-control' placeholder="Masukan nominal" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
                                 <label>Tanggal Penjualan</label>
                                 <input type="date" name='date' value="<?php echo date("Y-m-d"); ?>" class='form-control' required>
                             </div>

@@ -37,7 +37,7 @@ Transaksi Arus Kas
                             <th class='text-center'>Tanggal</th>
                             <th class='text-center'>Keterangan</th>
                             <th class='text-center'>Jenis</th>
-                            <th class='text-center'>Admin</th>
+                            <!-- <th class='text-center'>Admin</th> -->
                             <th class='text-center'>Nominal</th>
                             <th class='text-center'></th>
                         </tr>
@@ -55,7 +55,7 @@ Transaksi Arus Kas
                                 <td>
                                     <?= ($transaction->debit == NULL) ? "Pengeluaran" : "Pemasukkan" ?>
                                 </td>
-                                <td>
+                                <!-- <td>
                                 <?php
                                 $admin = $db->table("administrators");
                                 $admin->where("id", $transaction->admin_id);
@@ -64,7 +64,7 @@ Transaksi Arus Kas
 
                                 echo $admin->name;
                                 ?>
-                                </td>
+                                </td> -->
                                 <td class='text-right'>
                                     Rp. <?= ($transaction->debit == NULL) ? number_format($transaction->credit,0,",",".") : number_format($transaction->debit,0,",",".") ?>
                                 </td>

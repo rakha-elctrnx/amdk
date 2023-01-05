@@ -165,14 +165,14 @@ class ProductController extends CoreController
 
         if ($production != NULL || $sale_items != NULL) {
             $this->session->setFlashdata("msg_type", "error");
-            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> <b> varian" . $variantData->unit . "</b> gagal dihapus, karena data sudah pernah digunakan.");
+            $this->session->setFlashdata("msg", "<b>Gagal</b> <br> <b> Varian " . $variantData->unit . "</b> gagal dihapus, karena data sudah pernah digunakan.");
             return redirect()->to(base_url('product/' . $productID . '/edit'));
         }
 
         $this->productVariantModel->where('id', $variant_id)->delete();
 
         $this->session->setFlashdata("msg_type", "success");
-        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br>varian <b>" . $variantData->unit . "</b> berhasil dihapus.");
+        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br>Varian " . $variantData->unit . "</b> berhasil dihapus.");
         return redirect()->to(base_url('product/' . $productID . '/edit'));
     }
 }
