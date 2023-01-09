@@ -46,8 +46,16 @@ class TransactionController extends CoreController
         return redirect()->to(base_url('transaction'));
     }
     public function transaction_delete_process($id){
-        $transaction = $this->transactionModel->where("id", $id)->first();
+        $transaction = $this->transactionModel
+                        ->where("reference_table",NULL)
+                        ->where("id", $id)->first();
 
+        if($transaction == NULL){
+            $this->session->setFlashdata("msg_type","error");
+            $this->session->setFlashdata("msg","<b>Gagal</b> <br> Data transaksi arus kas tidak ditemukan.");
+            return redirect()->to(base_url('transaction'));
+        }
+        
         $this->transactionModel->where("id",$id)->delete();
 
         $this->session->setFlashdata("msg_type","success");
@@ -55,7 +63,9 @@ class TransactionController extends CoreController
         return redirect()->to(base_url('transaction'));
     }
     public function transaction_edit($id){
-        $transaction = $this->transactionModel->where("id", $id)->first();
+        $transaction = $this->transactionModel
+                        ->where("reference_table",NULL)
+                        ->where("id", $id)->first();
 
         if($transaction == NULL){
             $this->session->setFlashdata("msg_type","error");
@@ -84,7 +94,7 @@ class TransactionController extends CoreController
             $debit = NULL;
         }
 
-        $this->transactionModel->where("id",$id)->set([
+        $this->transactionModel->where("reference_table",NULL)->where("id",$id)->set([
             "details" => $details,
             "credit" => $credit,
             "debit" => $debit,

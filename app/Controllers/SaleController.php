@@ -146,6 +146,8 @@ class SaleController extends CoreController
         $discount = $this->request->getPost("discount");
         $productExplode = explode('-', $product);
 
+        $thisSale = $this->saleModel->where('id', $sale_id)->first();
+
         $productData = null;
         $productId = null;
         $productVariantId = null;
@@ -203,8 +205,20 @@ class SaleController extends CoreController
                 "stocks"        => ($productStock - $perhitungan_qty)
             ])->update();
 
+            $transactionDetails = "Penjualan ".$productData->name." (Ref : ".$thisSale->number.")";
+            $transactionNominal = $productPrice * $quantity - ($productPrice * $quantity * $discount / 100);
+
+            $this->transactionModel->insert([
+                "admin_id"  => $thisSale->admin_id,
+                "details"   => $transactionDetails,
+                "date"      => $thisSale->date,
+                "debit"    => $transactionNominal,
+                "reference_table" => "sale_items",
+                "reference_id"  => $this->saleItemModel->getInsertID()
+            ]);
+
             $this->session->setFlashdata("msg_type", "success");
-            $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil dibuat.");
+            $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil ditambahkan.");
             return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
         }
     }
@@ -219,6 +233,7 @@ class SaleController extends CoreController
         $product_id = $this->request->getPost("product_id");
         $product_variant_id = $this->request->getPost("product_variant_id");
 
+        $thisItem = $this->saleItemModel->where('id', $sale_item_id)->first();
         $data_product = $this->productModel->where('id', $product_id)->first();
 
         if ($product_variant_id == null) {
@@ -252,8 +267,15 @@ class SaleController extends CoreController
             "discount"                  => $discount,
         ])->update();
 
+        $transactionNominal = $thisItem->price * $quantity - ($thisItem->price * $quantity * $discount / 100);
+
+        $this->transactionModel
+                ->where("reference_table","sale_items")
+                ->where("reference_id",$sale_item_id)
+                ->set([ "debit"=>$transactionNominal ])->update();
+
         $this->session->setFlashdata("msg_type", "success");
-        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil diubah.");
+        $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil disimpan.");
         return redirect()->to(base_url('sale/' . $sale_id . '/manage'));
     }
 
@@ -275,6 +297,11 @@ class SaleController extends CoreController
         ])->update();
 
         $this->saleItemModel->delete($sale_items_id);
+
+        $this->transactionModel
+                ->where("reference_table","sale_items")
+                ->where("reference_id",$sale_items_id)
+                ->delete();
 
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item Penjualan berhasil dihapus.");

@@ -337,7 +337,7 @@ Kelola Produksi
                                                                 <input type="date" class="form-control text-right" name='date' value="<?= $cost->date ?>" placeholder="Tanggal" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center'>
-                                                                <input type="text" class="form-control text-right" name='details' value="<?= $cost->details ?>" placeholder="Keterangan" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
+                                                                <input type="text" class="form-control text-left" name='details' value="<?= $cost->details ?>" placeholder="Keterangan" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center' width="15%">
                                                                 <button type="submit" class="btn btn-success" title="Simpan">
@@ -365,7 +365,7 @@ Kelola Produksi
                                                                 <input type="date" class="form-control text-right" name='date' placeholder="Tanggal" value="<?= date("Y-m-d") ?>" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center'>
-                                                            <input type="text" class="form-control text-right" name='details' placeholder="Keterangan" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
+                                                            <input type="text" class="form-control text-left" name='details' placeholder="Keterangan" required <?= ($production->finish_date != NULL) ? "readonly" : "" ?>>
                                                             </td>
                                                             <td class='text-center'>
                                                                 <button type="submit" class="btn btn-primary" title="Tambah">

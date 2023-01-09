@@ -393,6 +393,7 @@ class ReportController extends CoreController
         // Ins
         $ins = $this->db->table("transactions");
         $ins->where("debit !=",NULL);
+        $ins->where("reference_table",NULL);
         $ins->where("date >=", $begin_date);
         $ins->where("date <=", $end_date);
         $ins = $ins->get();
@@ -416,6 +417,7 @@ class ReportController extends CoreController
         // Outs
         $outs = $this->db->table("transactions");
         $outs->where("credit !=",NULL);
+        $outs->where("reference_table",NULL);
         $outs->where("date >=", $begin_date);
         $outs->where("date <=", $end_date);
         $outs = $outs->get();

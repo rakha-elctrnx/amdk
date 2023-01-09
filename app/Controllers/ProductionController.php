@@ -9,10 +9,9 @@ class ProductionController extends CoreController
     public function production()
     {
         $productions = $this->ProductionModel
-            ->join('products', 'productions.product_id = products.id')
-            ->where('productions.admin_id', $this->session->admin_id)
             ->findAll();
         $data = [
+            "db"    => $this->db,
             'productions' => $productions,
         ];
         return view('modules/production', $data);
@@ -43,6 +42,7 @@ class ProductionController extends CoreController
             'snapshot_product_price' => $productData->price,
             'targets' => $targets,
             'production_date' => $production_date,
+            'estimation_date' => $estimation_date,
             'notes' => $notes,
         ]);
 
@@ -136,6 +136,22 @@ class ProductionController extends CoreController
             'finish_date' => $finish_date,
             "notes"=>$notes,
         ])->update();
+
+        if ($finish_date != NULL) {
+            if($faileds > 0){
+                $transactionDetails = "Kegagalan produksi ".$thisProduction->snapshot_product_name." (Ref : ".$thisProduction->number.")";
+                $transactionNominal = $thisProduction->snapshot_product_price * $faileds;
+
+                $this->transactionModel->insert([
+                    "admin_id"  => $thisProduction->admin_id,
+                    "details"   => $transactionDetails,
+                    "date"      => $finish_date,
+                    "credit"    => $transactionNominal,
+                    "reference_table" => "productions",
+                    "reference_id"  => $production_id,
+                ]);
+            }
+        }
 
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Produksi berhasil diubah.");
@@ -338,6 +354,18 @@ class ProductionController extends CoreController
             'details' => $details,
         ]);
 
+        $transactionDetails = $details." (Ref : ".$thisProduction->number.")";
+        $transactionNominal = $price;
+
+        $this->transactionModel->insert([
+            "admin_id"  => $thisProduction->admin_id,
+            "details"   => $transactionDetails,
+            "date"      => $date,
+            "credit"    => $transactionNominal,
+            "reference_table" => "costs",
+            "reference_id"  => $this->costModel->getInsertID()
+        ]);
+
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Biaya Produksi berhasil ditambahkan.");
         $this->session->setFlashdata("active", "biaya");
@@ -368,6 +396,11 @@ class ProductionController extends CoreController
             'details' => $details,
         ])->update();
 
+        $this->transactionModel
+                ->where("reference_table","costs")
+                ->where("reference_id",$cost_id)
+                ->set([ "credit"=>$price ])->update();
+
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Biaya Produksi berhasil diubah.");
         $this->session->setFlashdata("active", "biaya");
@@ -394,6 +427,11 @@ class ProductionController extends CoreController
         }
 
         $this->costModel->where('id', $cost_id)->delete();
+
+        $this->transactionModel
+                ->where("reference_table","costs")
+                ->where("reference_id",$cost_id)
+                ->delete();
 
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Biaya Produksi berhasil dihapus.");

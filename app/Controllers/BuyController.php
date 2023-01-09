@@ -166,6 +166,7 @@ class BuyController extends CoreController
         $quantity = $this->request->getPost("quantity");
         $discount = $this->request->getPost("discount");
 
+        $thisBuy = $this->buyModel->where("id", $buy)->first();
         $thisMaterial = $this->materialModel->where("id", $material)->first();
 
         if ($thisMaterial == NULL) {
@@ -201,6 +202,18 @@ class BuyController extends CoreController
         $this->materialModel->where("id", $material)->set([
             "stocks"        => ($thisMaterial->stocks + $quantity)
         ])->update();
+
+        $transactionDetails = "Pembelian ".$thisMaterial->name." (Ref : ".$thisBuy->number.")";
+        $transactionNominal = $price * $quantity - ($price * $quantity * $discount / 100);
+
+        $this->transactionModel->insert([
+            "admin_id"  => $thisBuy->admin_id,
+            "details"   => $transactionDetails,
+            "date"      => $thisBuy->date,
+            "credit"    => $transactionNominal,
+            "reference_table" => "buy_items",
+            "reference_id"  => $this->buyItemModel->getInsertID()
+        ]);
 
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item pembelian berhasil ditambahkan.");
@@ -252,6 +265,13 @@ class BuyController extends CoreController
             "stocks"        => $materialStocks
         ])->update();
 
+        $transactionNominal = $price * $quantity - ($price * $quantity * $discount / 100);
+
+        $this->transactionModel
+                ->where("reference_table","buy_items")
+                ->where("reference_id",$buyItemId)
+                ->set([ "credit"=>$transactionNominal ])->update();
+
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item pembelian berhasil diubah.");
         return redirect()->to(base_url('buy/' . $buy . '/manage'));
@@ -287,7 +307,12 @@ class BuyController extends CoreController
 
         $this->materialModel->where("id", $thisItem->material_id)->set([
             "stocks"        => $materialStocks
-        ])->update();        
+        ])->update();
+        
+        $this->transactionModel
+                ->where("reference_table","buy_items")
+                ->where("reference_id",$itemId)
+                ->delete();
 
         $this->session->setFlashdata("msg_type", "success");
         $this->session->setFlashdata("msg", "<b>Berhasil</b> <br> Item pembelian berhasil dihapus.");
