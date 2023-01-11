@@ -67,7 +67,7 @@ Kelola Produksi
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Catatan</label>
-                                <textarea class="form-control" name="notes" placeholder="Catatan"><?= ($production->notes != NULL) ? nl2br($production->notes) : "" ?></textarea>
+                                <textarea class="form-control" name="notes" placeholder="Catatan" <?= ($production->finish_date != NULL) ? 'readonly' : "" ?>><?= ($production->notes != NULL) ? nl2br($production->notes) : "" ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -247,7 +247,7 @@ Kelola Produksi
 
                                                                     if ($exist == NULL) :
                                                                 ?>
-                                                                        <option value="<?= $material->id ?>"><?= $material->name ?></option>
+                                                                        <option value="<?= $material->id ?>"><?= $material->name ?> (Rp. <?= number_format($material->price,0,",",".") ?>/<?= $material->unit ?>)</option>
                                                                 <?php
                                                                     endif;
                                                                 }
@@ -320,6 +320,7 @@ Kelola Produksi
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $totalCost = 0; ?>
                                                 <?php foreach($costs as $cost) : ?>
                                                     <tr>
                                                         <form action="<?= base_url("production/cost/edit") ?>" method="post">
@@ -349,6 +350,7 @@ Kelola Produksi
                                                             </td>
                                                         </form>
                                                     </tr>
+                                                <?php $totalCost += $cost->price; ?>
                                                 <?php endforeach; ?>
                                                     <tr>
                                                         <form action="<?= base_url("production/cost/add") ?>" method="post">
@@ -375,6 +377,12 @@ Kelola Produksi
                                                         </form>
                                                     </tr>
                                             </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th class='text-right' colspan='2'>Total</th>
+                                                    <th class='text-right'>Rp. <?= number_format($totalCost,0,",",".") ?></th>
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                     <div class="card-footer"></div>

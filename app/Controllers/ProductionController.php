@@ -114,6 +114,32 @@ class ProductionController extends CoreController
             $faileds = NULL;
         }
 
+        $this->ProductionModel->where('id', $production_id)->set([
+            'product_id' => $newID,
+            'admin_id' => $this->session->admin_id,
+            'snapshot_product_name' => $name,
+            'snapshot_product_unit' => $unit,
+            'snapshot_product_price' => $price,
+            'targets' => $targets,
+            'production_date' => $production_date,
+            'estimation_date' => $estimation_date,
+            "notes"=>$notes,
+        ])->update();
+
+        if($finish_date != NULL){
+            if($achieveds == NULL || $faileds == NULL){
+                $this->session->setFlashdata("msg_type", "error");
+                $this->session->setFlashdata("msg", "<b>Gagal</b> <br> Penyelesaian produksi gagal karena jumlah produk berhasil atau jumlah produk gagal belum di isi.");
+                return redirect()->to(base_url('production/' . $production_id . '/manage'));
+            }else{
+                $this->ProductionModel->where('id', $production_id)->set([
+                    'achieveds' => $achieveds,
+                    'faileds' => $faileds,
+                    'finish_date' => $finish_date,
+                ])->update();
+            }
+        }
+
         if ($finish_date != NULL) {
             $newStock = $productData->stocks + $achieveds;
 
@@ -122,25 +148,24 @@ class ProductionController extends CoreController
             ])->update();
         }
 
-        $this->ProductionModel->where('id', $production_id)->set([
-            'product_id' => $newID,
-            'admin_id' => $this->session->admin_id,
-            'snapshot_product_name' => $name,
-            'snapshot_product_unit' => $unit,
-            'snapshot_product_price' => $price,
-            'targets' => $targets,
-            'achieveds' => $achieveds,
-            'faileds' => $faileds,
-            'production_date' => $production_date,
-            'estimation_date' => $estimation_date,
-            'finish_date' => $finish_date,
-            "notes"=>$notes,
-        ])->update();
+        $totalBiaya = 0;
+        
+        $ingredients = $this->ingredientModel->where("production_id",$production_id)->findAll();
+        $costs = $this->costModel->where("production_id",$production_id)->findAll();
+
+        foreach($ingredients as $ingredient){
+            $totalBiaya = $totalBiaya + ($ingredient->snapshot_material_price * $ingredient->quantity); 
+        }
+        foreach($costs as $cost){
+            $totalBiaya += $cost->price;
+        }
+
+        $percentageFailed = $faileds / $targets * 100;
 
         if ($finish_date != NULL) {
             if($faileds > 0){
                 $transactionDetails = "Kegagalan produksi ".$thisProduction->snapshot_product_name." (Ref : ".$thisProduction->number.")";
-                $transactionNominal = $thisProduction->snapshot_product_price * $faileds;
+                $transactionNominal = $totalBiaya * $percentageFailed / 100;
 
                 $this->transactionModel->insert([
                     "admin_id"  => $thisProduction->admin_id,
