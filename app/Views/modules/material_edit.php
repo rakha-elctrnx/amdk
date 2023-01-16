@@ -31,7 +31,7 @@ Tambah Bahan (Baku/Produksi)
                                 <label>Jenis</label>
                                 <select class="form-control" name='type' required>
                                     <?php
-                                    for($tNo = 1; $tNo <= count(config("custom")->materialTypes) - 1; $tNo++){
+                                    for($tNo = 1; $tNo <= count(config("Custom")->materialTypes) - 1; $tNo++){
 
                                         if($tNo == $material->type){
                                             $set = "selected";
@@ -39,7 +39,7 @@ Tambah Bahan (Baku/Produksi)
                                             $set = "";
                                         }
                                         ?>
-                                        <option value="<?= $tNo ?>" <?= $set ?>><?= config("custom")->materialTypes[$tNo] ?></option>
+                                        <option value="<?= $tNo ?>" <?= $set ?>><?= config("Custom")->materialTypes[$tNo] ?></option>
                                         <?php
                                     }
                                     ?>

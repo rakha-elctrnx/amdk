@@ -57,7 +57,7 @@ class SaleController extends CoreController
             $textNewID = $newID;
         }
 
-        $number = config("custom")->saleLetter . date("Ymd") . $textNewID;
+        $number = config("Custom")->saleLetter . date("Ymd") . $textNewID;
 
         $this->saleModel->where("id", $newID)->set(["number" => $number])->update();
 

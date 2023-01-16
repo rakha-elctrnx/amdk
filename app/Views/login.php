@@ -17,7 +17,7 @@
 
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b><?= config("custom")->appName ?></b></a>
+            <a href="#"><b><?= config("Custom")->appName ?></b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">

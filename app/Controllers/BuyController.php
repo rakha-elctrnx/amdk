@@ -57,7 +57,7 @@ class BuyController extends CoreController
             $textNewID = $newID;
         }
 
-        $number = config("custom")->buyLetter . date("Ymd") . $textNewID;
+        $number = config("Custom")->buyLetter . date("Ymd") . $textNewID;
 
         $this->buyModel->where("id", $newID)->set(["number" => $number])->update();
 

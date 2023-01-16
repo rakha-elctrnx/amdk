@@ -71,7 +71,7 @@ $uri = current_url(true);
 		<aside class="main-sidebar elevation-4 sidebar-light-lightblue">
 			<!-- Brand Logo -->
 			<a href="<?= base_url("dashboard") ?>" class="brand-link bg-lightblue">
-				<span class="brand-text font-weight-dark"><?= config("custom")->appName ?></span>
+				<span class="brand-text font-weight-dark"><?= config("Custom")->appName ?></span>
 			</a>
 			<!-- Sidebar -->
 			<div class="sidebar">
@@ -232,8 +232,8 @@ $uri = current_url(true);
 			<strong>
 				Copyright
 				&copy;
-				<?= (date("Y") > config("custom")->yearMade) ? config("custom")->yearMade . " - " . date("Y") : config("custom")->yearMade ?>
-				<a href="#"><?= config("custom")->appName ?></a>.</strong> All rights reserved.
+				<?= (date("Y") > config("Custom")->yearMade) ? config("Custom")->yearMade . " - " . date("Y") : config("Custom")->yearMade ?>
+				<a href="#"><?= config("Custom")->appName ?></a>.</strong> All rights reserved.
 			</strong>
 		</footer>
 	</div>

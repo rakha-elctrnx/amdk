@@ -56,7 +56,7 @@ class ProductionController extends CoreController
             $textNewID = $newID;
         }
 
-        $number = config("custom")->productionLetter . date("Ymd") . $textNewID;
+        $number = config("Custom")->productionLetter . date("Ymd") . $textNewID;
 
         $this->ProductionModel->where("id", $newID)->set(["number" => $number])->update();
 
