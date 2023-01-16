@@ -50,7 +50,7 @@ Bahan (Baku/Produksi)
                             ?>
                             <tr>
                                 <td class='text-center'><?= $no ?></td>
-                                <td class='text-center'><?= config("custom")->materialTypes[$material->type] ?></td>
+                                <td class='text-center'><?= config("Custom")->materialTypes[$material->type] ?></td>
                                 <td><?= $material->name ?></td>
                                 <td class='text-right'><?= number_format($material->stocks,0,",",".") ?></td>
                                 <td><?= $material->unit ?></td>

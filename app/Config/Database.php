@@ -33,9 +33,9 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'project_amdk',
+        'username' => 'bume4977_amdk_maja',
+        'password' => 'GPEbBi;l$RRi',
+        'database' => 'bume4977_amdk_maja',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= config("custom")->appName ?></title>
+    <title><?= config("Custom")->appName ?></title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/fontawesome-free/css/all.min.css">

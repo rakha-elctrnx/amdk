@@ -79,7 +79,7 @@ $uri = current_url(true);
 				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 					<div class="info">
 						<a href="<?= base_url('profile') ?>" class="d-block">
-							<?= config("login")->adminName ?>
+							<?= config("Login")->adminName ?>
 							&nbsp;
 							<i class='fa fa-edit'></i>
 						</a>
